@@ -1,0 +1,16 @@
+Renamed Types:
+
+[ConsoleApp1]ConsoleApp1.Program -> [ConsoleApp1]A.A
+{
+	[ConsoleApp1]ConsoleApp1.Program::Main[1]( [System.Runtime]System.String[] ) -> A
+
+	[ConsoleApp1]ConsoleApp1.Program::.ctor[0]( ) skipped:  special name
+}
+
+Skipped Types:
+
+Renamed Resources:
+
+
+Skipped Resources:
+
