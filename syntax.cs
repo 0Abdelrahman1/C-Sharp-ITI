@@ -61,3 +61,77 @@ jarr[2] = new int[3];
 jarr[0][0] = 11;
 
 #endregion
+
+
+#region Day 3
+
+float D = 13.5f;
+decimal Salary = 15000.23M;
+Int32 X = 5000;
+Int64 Y = 50_000;
+Y = X;      // Int64 = Int32   Implicit, Safe
+X = (int)Y; // Int32 = Int64   Explicit, unsafe
+
+checked // Without this it will be like c++ int overflow "silent"
+{
+    X = (int)Y;
+} ///Instruct CLR To Throw Overflow Exception when overflow occures
+
+unchecked { } // to Explicitly overflow exception "silent"
+
+var D = 13.5; // like auto in c++
+
+bool Flag = default; // it gives it the default value or call the parameter-less constructor like declaring global variable in c++ (bool) can be any other type
+
+// Nullable Types // Null Operators
+int? Z = 50;
+Z = null; // int? can take all values of int + null
+Z.value; // return int value of int? // same as "(int)Z";
+int I = (int)Z; // must be "explicit" "unsafe" because int? greater than int // error in Z = null
+Z.HasValue; // boolean if Z is int value (true) or null (false)
+I = Z ?? -1; ///Null coalsing Operating // same as "I = Z.HasValue ? Z.Value : -1"; 
+
+int[] arr = default; // null
+arr?.Length; // this return type is (int?) not (int) as if arr == null it returns null else it returns arr.Length
+for (int i = 0; i < (arr?.Length??0); i++); // we can get benefit from this in for loops like this  // "T? ?? v" return type is T
+/// Arr.Lenght : int , Not Protective
+/// Arr?.Lenght : int?,  Protective
+/// Arr?.Lenght??-1 : int
+
+Console.WriteLine(Emp?.Department?.Name?.Length ?? -1); //Null Propagation Operator 
+
+
+/// Boxing , UnBoxing
+int X = 50;
+object O1;
+O1 = X;
+//ref to Base = Derived // by3mel mkan gded fel heap bnos5a mn el derived
+//Safe , Implicit
+//Boxing
+
+O1 = "Hello";
+int Y;
+Y = (int)O1;
+//Derived = Base
+//UnSafe , Explicit 
+//UnBoxing
+
+/// string immutable
+string str = "";
+for (int i = 0; i < 100_000_000; i++) str += i.ToString(); // take so long time O(n^2) // there is string builder will be discussed later 
+
+/// Enums
+enum Grades
+{ A , B , C , D , F}
+enum Branches:byte // can take values of size byte only
+{
+    SV = 101 , Mansoura , Ismailia = 204 , Assuit , Alex 
+}
+
+[Flags] // when u console.write(12) it will output: "Write, Read" because of [Flags]
+enum Permissions:byte 
+{ Read = 0x08 , Write = 4, Execute = 0b_0000_0010 , Delete = 1 , Root = 15 , 
+    SuperUser=0b_0000_1110}
+
+// some more in D03 PII
+#endregion
