@@ -135,3 +135,37 @@ enum Permissions:byte
 
 // some more in D03 PII
 #endregion
+
+#region Day4
+
+void print(int n, string str) { ... }
+print(str:"*", n:8); // in main     // syntax sugar
+
+void print(int n = 5, string str = "-") { ... }
+print(str:"*"); // in main
+
+void swap(ref int a, ref int b) {...}
+int a = 0, b = 0; // must be initialized to pass it by "ref";
+swap(ref a, ref b);
+
+int SumMul(int a, int b, out s, out m) {...}; // "out" don't need var to be intialized
+int s, m;
+SumMul(1,2, out s, out m); 
+
+SumMul(1,2, out int s, out int m); // same AS int s, m; SumMul(1,2, out s, out m);  // syntax sugar
+SumMul(1,2, out int s, out _); // discard last one
+
+// some more
+
+#endregion
+
+
+#region Day 5
+
+readonly // constructor bas mynfa34 a3del feh fe ay method
+required // keda my2dar4 yst3mel el param-less lazem 3la el akal yb3at el feild dah y2ma fe el object intializer aw fy el constructor {}
+
+#endregion
+
+// assignment
+// return ref
