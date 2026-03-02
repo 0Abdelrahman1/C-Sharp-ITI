@@ -7,7 +7,6 @@ namespace Task
 
         [Flags]
         enum SecurityLevel : byte { GUEST = 1, DEVELOPER = 1 << 1, SECRETARY = 1 << 2, DBA = 1 << 3, SECURITY_OFFICER = (1 << 4) - 1 };
-
         enum Gender { M, F }
         struct HiringDate
         {
@@ -39,7 +38,7 @@ namespace Task
             }
         }
 
-        struct Employee
+        struct Employee : IComparable<Employee>
         {
             private int _id;
             private string _name;
@@ -74,6 +73,13 @@ namespace Task
             public override string ToString()
             {
                 return String.Format($"id: {Id}\tsecurity level: {SecurityLevel}\tsalary: {Salary:C}\thire date: {HireDate.ToString()}\tgender: {Gender}");
+            }
+
+            public int CompareTo(Employee other)
+            {
+                if (this.HireDate.Year != other.HireDate.Year) return this.HireDate.Year.CompareTo(other.HireDate.Year);
+                if (this.HireDate.Month != other.HireDate.Month) return this.HireDate.Month.CompareTo(other.HireDate.Month);
+                return this.HireDate.Day.CompareTo(other.HireDate.Day);
             }
         }
 
@@ -124,40 +130,60 @@ namespace Task
 
         static void Main(string[] args)
         {
-            const int sz = 1;
+            const int sz = 2;
             Employee[] employees = new Employee[sz];
 
             for (int i = 0; i < sz; i++)
             {
-                Console.WriteLine($"Enter Data of The Emp#{i}:");
-                Console.Write("\tid: ");
-                employees[i].Id = int.Parse(Console.ReadLine());
-                Console.Write("\tname: ");
-                employees[i].Name = Console.ReadLine();
-                Console.Write("\tSecurityLevel (GUEST | DEVELOPER | SECRETARY | DBA | SECURITY_OFFICER): ");
-                employees[i].SecurityLevel = Enum.Parse<SecurityLevel>(Console.ReadLine());
-                Console.Write("\tsalary: ");
-                employees[i].Salary = double.Parse(Console.ReadLine());
-                Console.Write("\tgender (M|F): ");
-                employees[i].Gender = Enum.Parse<Gender>(Console.ReadLine());
-                Console.WriteLine("\tHiring Date: ");
-                Console.Write("\t\tDay: ");
-                int d = int.Parse(Console.ReadLine());
-                Console.Write("\t\tMonth: ");
-                int m = int.Parse(Console.ReadLine());
-                Console.Write("\t\tYear: ");
-                int y = int.Parse(Console.ReadLine());
-                employees[i].SetHiringDate(d, m, y);
-                Console.WriteLine();
+            again:
+                try
+                {
+                    Console.WriteLine($"Enter Data of The Emp#{i}:");
+                    Console.Write("\tid: ");
+                    employees[i].Id = int.Parse(Console.ReadLine());
+                    Console.Write("\tname: ");
+                    employees[i].Name = Console.ReadLine();
+                    Console.Write("\tSecurityLevel (GUEST | DEVELOPER | SECRETARY | DBA | SECURITY_OFFICER): ");
+                    employees[i].SecurityLevel = Enum.Parse<SecurityLevel>(Console.ReadLine());
+                    Console.Write("\tsalary: ");
+                    employees[i].Salary = double.Parse(Console.ReadLine());
+                    Console.Write("\tgender (M|F): ");
+                    employees[i].Gender = Enum.Parse<Gender>(Console.ReadLine());
+                    Console.WriteLine("\tHiring Date: ");
+                    Console.Write("\t\tDay: ");
+                    int d = int.Parse(Console.ReadLine());
+                    Console.Write("\t\tMonth: ");
+                    int m = int.Parse(Console.ReadLine());
+                    Console.Write("\t\tYear: ");
+                    int y = int.Parse(Console.ReadLine());
+                    employees[i].SetHiringDate(d, m, y);
+                    Console.WriteLine();
+                }
+                catch
+                {
+                    Console.WriteLine("Try again and be strict to the format");
+                    Console.WriteLine("*************************************");
+                    Console.WriteLine();
+                    goto again;
+                }
+
             }
+
+            employees.Sort();
+            foreach (Employee employee in employees) Console.WriteLine(employee);
+            Console.WriteLine("**********************************************");
+            Console.WriteLine("**********************************************");
+            Console.WriteLine();
+
 
             EmployeeSearch es = new EmployeeSearch(employees);
 
             string[] methods = { "NationalID", "Hiring Dates", "Name" };
             while (true)
             {
-                Console.Write($"Enter Search Method [1]{methods[0]} [2]{methods[1]} [3]{methods[2]}: ");
+                Console.Write($"Enter Search Method [1]{methods[0]} [2]{methods[1]} [3]{methods[2]} [4]Break : ");
                 int m = int.Parse(Console.ReadLine());
+                if (m == 4) break;
                 if (m > 3 || m < 1) return;
 
                 Console.Write($"Enter {methods[m - 1]}:");
@@ -174,6 +200,7 @@ namespace Task
                         break;
                 }
                 Console.WriteLine();
+
             }
         }
     }

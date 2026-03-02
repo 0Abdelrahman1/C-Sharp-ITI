@@ -1,6 +1,6 @@
 ﻿namespace Task1
 {
-    internal class Point(double x, double y, double z)
+    internal class Point(double x, double y, double z) : IComparable<Point>, ICloneable
     {
         public double X { get { return x; } set { x = value; } }
         public double Y { get { return y; } set { y = value; } }
@@ -58,13 +58,28 @@
             
             return this.X == that.X && this.Y == that.Y && this.Z == that.Z;
         }
+
+        public int CompareTo(Point? other)
+        {
+            if (this.X != other.X) return this.X.CompareTo(other.X);
+            return this.Y.CompareTo(other.Y);
+        }
+        public object Clone()
+        {
+            return new Point() { X = this.X, Y = this.Y, Z = this.Z };
+        }
     }
 
     internal class Program
     {
         static void Main(string[] args)
         {
-            Point P1 = new(), P2 = new();
+            Point P1 = new() { X = 100, Y = 2, Z = 3 }, P2 = new() { X = 10, Y = 20, Z = 30 };
+            Point[] ps = [P1, P2];
+            ps.Sort();
+            foreach (Point p in ps) Console.WriteLine(p);
+            Console.WriteLine();
+            Console.WriteLine();
 
             P1.TryRead();
             P2.Read();
@@ -78,6 +93,8 @@
             P1 = P2;
             // Now same reference — == prints EQ
             Console.WriteLine(P1 == P2 ? "EQ" : "NEQ");
+
+
         }
     }
 }
