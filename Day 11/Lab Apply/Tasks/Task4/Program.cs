@@ -34,7 +34,7 @@
             #region 3. Produce a sequence containing some properties of Products, including UnitPrice which is renamed to Price in the resulting type.
             {
                 Console.WriteLine("3. Produce a sequence containing some properties of Products, including UnitPrice which is renamed to Price in the resulting type.");
-                var Result = ProductList.Select(p => new { ProductName = p.ProductName , Price = p.UnitPrice }) ;
+                var Result = ProductList.Select(p => new { p.ProductName, Price = p.UnitPrice });
                 foreach (var unit in Result)
                     Console.WriteLine($"\t{unit}");
             }
@@ -47,10 +47,10 @@
                 Console.WriteLine("4. Determine if the value of ints in an array match their position in the array.");
                 Console.WriteLine("    int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };");
                 int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-                var Result = Arr.Select((x, i) => x == i).ToList();
+                var Result = Arr.Select((x, i) => new {Number = x, Inplace= x == i}).ToList();
                 Console.WriteLine($"\tNumber:In-place?");
-                for (int i = 0; i < Arr.Length; i++)
-                    Console.WriteLine($"\t{Arr[i]}: {Result[i]}");
+                foreach (var unit in Result)
+                    Console.WriteLine($"\t{unit.Number}: {unit.Inplace}");
             }
             #endregion
 
