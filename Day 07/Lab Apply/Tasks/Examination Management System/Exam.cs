@@ -28,13 +28,15 @@ namespace Examination_Management_System
         public virtual void Start()
         {
             QuestionAnswerDictionary.Clear();
+            Mode = ExamMode.Starting;
+            Subject.NotifyStudents();
         }
         public virtual void Finish()
         {
             foreach (Question question in Questions)
             {
                 question.Display();
-                Console.Write($"Student Answers: {QuestionAnswerDictionary[question]}");
+                Console.Write($"Student Answers: {QuestionAnswerDictionary[question]}\n");
             }
         }
         public virtual int CorrectExam()
@@ -47,16 +49,28 @@ namespace Examination_Management_System
         }
         public override string ToString()
         {
-            string ret = string.Empty;
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"Time:{Time}\tNumber of Questions:{NumberOfQuestions}\tSubject:{Subject}\t");
+            foreach (var q in Questions)
+                sb.Append(q.ToString());
 
+            return sb.ToString();
         }
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Exam that = obj as Exam;
+            if (that == null || Questions.Count != that.Questions.Count) return false;
+            foreach (var q in Questions)
+                if (!that.Questions.Contains(q))
+                    return false;
+            return true;
         }
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            var hash = new HashCode();
+            foreach (var q in Questions)
+                hash.Add(q.GetHashCode());
+            return hash.ToHashCode();
         }
 
         public abstract object Clone();
