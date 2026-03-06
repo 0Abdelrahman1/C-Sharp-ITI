@@ -8,6 +8,7 @@
         public AnswerList() { }
         public AnswerList(List<Answer> answers)
         {
+            answers.Sort();
             Answers = answers;
             Count = answers.Count;
         }

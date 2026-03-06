@@ -7,7 +7,7 @@ namespace Examination_Management_System
     public class ChooseOneQuestion : Question
     {
         public ChooseOneQuestion(string body, int marks, AnswerList answers, Answer correctAnswer)
-            : base(QuestionType.SMCQ, body, marks, answers, correctAnswer) { }
+            : base(QuestionType.SMCQ, body, marks, answers, (AnswerList)correctAnswer) { }
         public override bool CheckAnswer(AnswerList studentAnswer)
         {
             if (studentAnswer.Count != 1) throw new ArgumentException("studentAnswer.Count must == 1");

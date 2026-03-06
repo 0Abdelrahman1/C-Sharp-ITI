@@ -19,6 +19,7 @@ namespace Examination_Management_System
         {
             Time = time;
             NumberOfQuestions = questions.Count;
+            QuestionAnswerDictionary = new Dictionary<Question, AnswerList>();
             Questions = questions;
             Subject = subject;
             Mode = mode;
@@ -37,13 +38,14 @@ namespace Examination_Management_System
             {
                 question.Display();
                 Console.Write($"Student Answers: {QuestionAnswerDictionary[question]}\n");
+                Console.WriteLine("-------------------------------------------------------");
             }
         }
         public virtual int CorrectExam()
         {
             int totalMarks = 0;
             foreach (var q in Questions)
-                if (q.Answers.Equals(QuestionAnswerDictionary[q]))
+                if (q.CorrectAnswers.Equals(QuestionAnswerDictionary[q]))
                     totalMarks += q.Marks;
             return totalMarks;
         }

@@ -23,7 +23,7 @@ namespace Examination_Management_System
                 Console.WriteLine("-------------------------------------------------------");
             }
         }
-        public virtual void Finish()
+        public override void Finish()
         {
             foreach (Question question in Questions)
             {

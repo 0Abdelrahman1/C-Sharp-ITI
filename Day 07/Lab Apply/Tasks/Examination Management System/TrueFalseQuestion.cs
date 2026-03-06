@@ -8,7 +8,7 @@ namespace Examination_Management_System
     public class TrueFalseQuestion : Question
     {
         public TrueFalseQuestion(string body, int marks, Answer correctAnswer)
-            : base(QuestionType.TF, body, marks, new([new("True"), new("False")]), new([new(correctAnswer.Text)])) {}
+            : base(QuestionType.TF, body, marks, new([new("True", 0), new("False", 1)]), new([new(correctAnswer.Text)])) {}
         public override bool CheckAnswer(AnswerList studentAnswer)
         {
             if (studentAnswer.Count != 1) throw new ArgumentException("studentAnswer.Count must == 1");

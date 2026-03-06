@@ -10,9 +10,10 @@ namespace Examination_Management_System
         public int Id { get; set; }
         public string Text { get; init; }
 
-        public Answer(string text)
+        public Answer(string text, int id = 0)
         {
             Text = text;
+            Id = id;
         }
 
         public static explicit operator AnswerList(Answer obj)
@@ -22,14 +23,14 @@ namespace Examination_Management_System
 
         public override string ToString()
         {
-            return $"{'a' + Id}. {Text}";
+            return $"{Id}. {Text}";
         }
 
         public override bool Equals(object obj)
         {
             Answer that = obj as Answer;
             if (that == null) return false;
-            return that.Id == Id && that.Text == Text;
+            return that.Text == Text;
         }
         public override int GetHashCode()
         {
