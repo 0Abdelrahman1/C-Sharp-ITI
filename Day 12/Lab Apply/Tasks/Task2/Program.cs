@@ -35,7 +35,7 @@
             }
             #endregion
 
-            //Console.WriteLine("\n---------------------------------------------------------------------------------\n");
+            Console.WriteLine("\n---------------------------------------------------------------------------------\n");
 
             #region 4. Get the total of the numbers in an array.
             {
@@ -44,7 +44,6 @@
                 int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
                 var r = Arr.Sum();
                 Console.WriteLine(r);
-                //foreach (var i in r) Console.WriteLine($"\t{i}");
             }
             #endregion
 
