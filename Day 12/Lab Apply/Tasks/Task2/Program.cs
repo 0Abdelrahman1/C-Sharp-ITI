@@ -91,19 +91,21 @@
             }
             #endregion
 
-            //Console.WriteLine("\n---------------------------------------------------------------------------------\n");
+            Console.WriteLine("\n---------------------------------------------------------------------------------\n");
 
-            //#region 9. Get the products with the cheapest price in each category (Use Let)
-            //{
-            //    Console.WriteLine("9. Get the products with the cheapest price in each category (Use Let)");
-            //    var r = from p in ProductList
-            //            let mp = ProductList.GroupBy(p => p.Category).Select(g => new { Category = g.Key, Min = g.Min(p => p.UnitPrice) })
-            //            group p by p.Category
-            //            into cp
-            //            cp.;
-            //    foreach (var i in r) Console.WriteLine($"\t{i}");
-            //}
-            //#endregion
+            #region 9. Get the products with the cheapest price in each category (Use Let)
+            {
+                Console.WriteLine("9. Get the products with the cheapest price in each category (Use Let)");
+                var r = from p in ProductList
+                        group p by p.Category into pc
+                        let mnc = pc.Min(p => p.UnitPrice)
+                        from pcc in pc
+                        where pcc.UnitPrice == mnc
+                        select pcc;
+
+                foreach (var i in r) Console.WriteLine($"\t{i}");
+            }
+            #endregion
 
             Console.WriteLine("\n---------------------------------------------------------------------------------\n");
 
