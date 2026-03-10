@@ -11,10 +11,10 @@
             {
                 Console.WriteLine("1.Use group by to partition a list of numbers by their remainder when divided by 5");
                 var arr = Enumerable.Range(0, 15);
-                var r = arr.GroupBy(x => x % 5).Select(g => new { Reminder = g.Key, Group = g });
+                var r = arr.GroupBy(x => x % 5).Select(g => new { Remainder = g.Key, Group = g });
                 foreach (var i in r)
                 {
-                    Console.WriteLine($"Numbers with a remainder of 0 when divided by {i.Reminder}:");
+                    Console.WriteLine($"Numbers with a remainder of {i.Remainder} when divided by 5:");
                     foreach (var j in i.Group)
                         Console.WriteLine($"\t{j}");
                     Console.WriteLine();

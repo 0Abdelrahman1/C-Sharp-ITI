@@ -53,7 +53,7 @@
             {
                 Console.WriteLine("5. Get the total number of characters of all words in dictionary_english.txt (Read dictionary_english.txt into Array of String First).");
                 var arr = File.ReadAllLines("../../../../../Assignment Files/dictionary_english.txt").ToList();
-                var r = arr.SelectMany(s => s.ToCharArray()).Count();
+                var r = arr.Sum(s => s.Length);
                 Console.WriteLine(r);
             }
             #endregion
@@ -132,7 +132,10 @@
             #region 12. Get the products with the most expensive price in each category.
             {
                 Console.WriteLine("12. Get the products with the most expensive price in each category.");
-                var r = ProductList.GroupBy(p => p.Category).Select(g => new { Category = g.Key, HighestPriceProducts = g.GroupBy(p => p.UnitPrice).MaxBy(g => g.Key).ToList() });
+                var r = ProductList
+                    .GroupBy(p => p.Category)
+                    .Select(g => new { Category = g.Key, HighestPriceProducts = g.Where(p => p.UnitPrice == g.Max(pp => pp.UnitPrice))
+                                                                                .ToList()});
                 foreach (var group in r)
                     foreach (var prod in group.HighestPriceProducts)
                         Console.WriteLine($"\t{group.Category}::{prod}");
