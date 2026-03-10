@@ -1,0 +1,63 @@
+########################
+# 1) Ignore everything
+########################
+*
+!.gitignore
+
+########################
+# 2) Allow Day folders
+########################
+!Day */
+
+########################
+# 3) Inside Day folders:
+#    allow only Lab Apply
+########################
+Day */**
+!Day */Lab Apply/
+!Day */Lab Apply/**
+
+
+# Unignore in D*/** folder
+!Day */D*/
+!Day */D*/**/
+!Day */D*/**.cs
+
+
+
+# Get the all .cs files
+!*.cs
+
+
+#########################
+# Build results
+bin/
+obj/
+Debug/
+Release/
+
+# Visual Studio files
+.vs/
+*.user
+*.rsuser
+*.suo
+*.sln.docstates
+
+# Build artifacts
+*.exe
+*.dll
+*.pdb
+
+# Logs and temp
+*.log
+*.tmp
+
+# Windows Forms designer files
+*.Designer.cs
+*.resx
+
+# Auto-generated resources
+*.resources
+
+# Windows Forms user-specific settings
+*.settings
