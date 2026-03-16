@@ -23,6 +23,10 @@ Day */**
 !Day */D*/**/
 !Day */D*/**.cs
 
+# unignore Projects folder
+!Projects/
+!Projects/**
+
 
 
 # Get the all .cs files
