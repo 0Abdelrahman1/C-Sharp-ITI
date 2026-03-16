@@ -3,6 +3,7 @@ using HospitalConsoleAPP.Entities;
 using Microsoft.EntityFrameworkCore;
 
 
+
 using HospitalContext Context = new();
 
 Context.Database.Migrate(); //Apply latest migration as PMC Command Update-Database

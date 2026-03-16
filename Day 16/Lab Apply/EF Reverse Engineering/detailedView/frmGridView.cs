@@ -33,7 +33,7 @@ namespace detailedView
             publisherCol.HeaderText = "Publisher Name";
             grdViewTitles.Columns.Add(publisherCol);
             grdViewTitles.Columns["PubId"].Visible = false;
-            grdViewTitles.Columns["ProductID"].ReadOnly = true;
+            grdViewTitles.Columns["Pub"].Visible = false;
         }
 
         private void frmGridView_Load(object sender, EventArgs e)
@@ -48,8 +48,7 @@ namespace detailedView
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grdViewTitles.EndEdit();
-
-            grdViewTitles.Update();
+            Context.SaveChanges();
         }
     }
 }
