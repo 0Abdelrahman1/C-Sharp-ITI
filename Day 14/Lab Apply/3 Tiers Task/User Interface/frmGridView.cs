@@ -60,7 +60,7 @@ namespace User_Interface
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gridViewTitles.EndEdit();
-            //foreach (var title in titles) Trace.WriteLine(title);
+            foreach (var title in titles) Trace.WriteLine(title);
             var Changes = titles.SaveChanges();
             titlesBindingSource.ResetBindings(false); 
             this.Text = $"Added: {Changes.Item1}, Modified:{Changes.Item2}, Deleted:{Changes.Item3}";
@@ -72,8 +72,8 @@ namespace User_Interface
             {
                 e.Handled = true;  // Prevent default delete behavior
                 gridViewTitles.CurrentRow.Cells["State"].Value = EntityState.Deleted;
+                titlesBindingSource.ResetBindings(false);
             }
-            titlesBindingSource.ResetBindings(false);
         }
     }
 }

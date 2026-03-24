@@ -23,51 +23,51 @@ namespace Business_Logic_Layer.EntityManagers
             finally { }
         }
 
-        public static bool UpdateTitleRow(string title_id, string title, string type, string? pub_id, decimal? price, decimal? advance, int? royalty, int? ytd_sales, string? notes, DateTime pubdate)
+        public static bool Update(Title title)
         {
             try
             {
                 Dictionary<string, object> Parameters = new()
                 {
-                    ["@title_id"] = title_id,
-                    ["@title"] = title,
-                    ["@type"] = type,
-                    ["@pub_id"] = pub_id,
-                    ["@price"] = price,
-                    ["@advance"] = advance,
-                    ["@royalty"] = royalty,
-                    ["@ytd_sales"] = ytd_sales,
-                    ["@notes"] = notes,
-                    ["@pubdate"] = pubdate
+                    ["@title_id"] = title.title_id,
+                    ["@title"] = title.title,
+                    ["@type"] = title.type,
+                    ["@pub_id"] = title.pub_id,
+                    ["@price"] = title.price,
+                    ["@advance"] = title.advance,
+                    ["@royalty"] = title.royalty,
+                    ["@ytd_sales"] = title.ytd_sales,
+                    ["@notes"] = title.notes,
+                    ["@pubdate"] = title.pubdate
                 };
                 return Manager.ExecuteNonQuery("UpdateTitleRow", Parameters) > 0;
             }
             catch { return false; }
             finally { }
         }
-        public static bool InsertTitleRow(string title_id, string title, string type, string? pub_id, decimal? price, decimal? advance, int? royalty, int? ytd_sales, string? notes, DateTime pubdate)
+        public static bool Insert(Title title)
         {
             try
             {
                 Dictionary<string, object> Parameters = new()
                 {
-                    ["@title_id"] = title_id,
-                    ["@title"] = title,
-                    ["@type"] = type,
-                    ["@pub_id"] = pub_id,
-                    ["@price"] = price,
-                    ["@advance"] = advance,
-                    ["@royalty"] = royalty,
-                    ["@ytd_sales"] = ytd_sales,
-                    ["@notes"] = notes,
-                    ["@pubdate"] = pubdate
+                    ["@title_id"] = title.title_id,
+                    ["@title"] = title.title,
+                    ["@type"] = title.type,
+                    ["@pub_id"] = title.pub_id,
+                    ["@price"] = title.price,
+                    ["@advance"] = title.advance,
+                    ["@royalty"] = title.royalty,
+                    ["@ytd_sales"] = title.ytd_sales,
+                    ["@notes"] = title.notes,
+                    ["@pubdate"] = title.pubdate
                 };
                 return Manager.ExecuteNonQuery("InsertTitleRow", Parameters) > 0;
             }
             catch { return false; }
             finally { }
         }
-        public static bool DeleteTitleRow(string title_id)
+        public static bool Delete(string title_id)
         {
             try
             {

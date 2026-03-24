@@ -15,13 +15,9 @@ namespace Business_Logic_Layer.EntityLists
             {
                 switch (item.State)
                 {
-                    case EntityState.Added:
-                        Added += TitleManager.InsertTitleRow(
-                        item.title_id, item.title, item.type, item.pub_id, item.price, item.advance, item.royalty, item.ytd_sales, item.notes, item.pubdate) ? 1 : 0; break;
-                    case EntityState.Modified:
-                        Modified += TitleManager.UpdateTitleRow(
-                        item.title_id, item.title, item.type, item.pub_id, item.price, item.advance, item.royalty, item.ytd_sales, item.notes, item.pubdate) ? 1 : 0; break;
-                    case EntityState.Deleted: Deleted += TitleManager.DeleteTitleRow(item.title_id) ? 1 : 0; break;
+                    case EntityState.Added: Added += TitleManager.Insert(item) ? 1 : 0; break;
+                    case EntityState.Modified: Modified += TitleManager.Update(item) ? 1 : 0; break;
+                    case EntityState.Deleted: Deleted += TitleManager.Delete(item.title_id) ? 1 : 0; break;
                 }
                 if (item.State != EntityState.Deleted)
                     item.State = EntityState.UnChanged;
