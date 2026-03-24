@@ -24,6 +24,19 @@ namespace User_Interface
 
             publishersIdName = PublisherManager.SelectAllPublishersIdName();
             publishersIdNameBindingSource = new(publishersIdName, "");
+
+            titlesBindingSource.AddingNew += (sender, e) =>
+            {
+                string mx = titles.Max(t => t.title_id);
+                if (mx[0] == 'z')
+                {
+                    string num = (int.Parse(mx[1..]) + 1).ToString();
+                    mx = "z" + new string('0', 5 - num.Length) + num;
+                }
+                else
+                    mx = "z00000";
+                e.NewObject = new Title() { title_id = mx, title = "", type = "", pubdate = DateTime.Now };
+            };
         }
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -47,8 +60,7 @@ namespace User_Interface
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gridViewTitles.EndEdit();
-            foreach (var title in titles)
-                Trace.WriteLine(title);
+            //foreach (var title in titles) Trace.WriteLine(title);
             var Changes = titles.SaveChanges();
             titlesBindingSource.ResetBindings(false); 
             this.Text = $"Added: {Changes.Item1}, Modified:{Changes.Item2}, Deleted:{Changes.Item3}";

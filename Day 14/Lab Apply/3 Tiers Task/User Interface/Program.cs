@@ -12,6 +12,7 @@ namespace User_Interface
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new frmGridView());
+            //Application.Run(new frmDetailedView());
         }
     }
 }
