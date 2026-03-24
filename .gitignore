@@ -57,7 +57,6 @@ Release/
 *.tmp
 
 # Windows Forms designer files
-*.Designer.cs
 *.resx
 
 # Auto-generated resources
