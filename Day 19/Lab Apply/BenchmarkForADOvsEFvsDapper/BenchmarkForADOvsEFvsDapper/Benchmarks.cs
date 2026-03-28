@@ -26,7 +26,7 @@ namespace BenchmarkForADOvsEFvsDapper
         [Benchmark]
         public void GetAllTitlesEF()
         {
-            var t = pubsContext.Instance.Titles.ToList();
+            var t = pubsContext.Context.Titles.ToList();
         }
 
         [Benchmark]

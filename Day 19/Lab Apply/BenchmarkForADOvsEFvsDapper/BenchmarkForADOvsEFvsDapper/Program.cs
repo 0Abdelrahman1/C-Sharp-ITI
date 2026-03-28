@@ -9,22 +9,22 @@ namespace BenchmarkForADOvsEFvsDapper
     {
         static void Main(string[] args)
         {
-            pubsContext.Instance.Publishers.Load();
-            var NewTitles = new TitleFaker(pubsContext.Instance).Generate(10000);
+            pubsContext.Context.Publishers.Load();
+            var NewTitles = new TitleFaker(pubsContext.Context).Generate(10);
             try
             {
-                pubsContext.Instance.AddRange(NewTitles);
-                pubsContext.Instance.SaveChanges();
-                pubsContext.Instance.Titles.Local.Clear();
+                pubsContext.Context.AddRange(NewTitles);
+                pubsContext.Context.SaveChanges();
+                pubsContext.Context.Titles.Local.Clear();
                 var _ = BenchmarkRunner.Run(typeof(Program).Assembly);
 
             }
             finally
             {
                 foreach (var item in NewTitles)
-                    pubsContext.Instance.Remove(item);
-                pubsContext.Instance.SaveChanges();
-                pubsContext.Instance.Dispose();
+                    pubsContext.Context.Remove(item);
+                pubsContext.Context.SaveChanges();
+                pubsContext.Context.Dispose();
             }
         }
     }

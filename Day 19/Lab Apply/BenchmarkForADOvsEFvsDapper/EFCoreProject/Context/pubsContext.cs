@@ -9,7 +9,7 @@ namespace EFCoreProject.Context;
 
 public partial class pubsContext : DbContext
 {
-    public static pubsContext Instance { get; } = new();
+    public static pubsContext Context { get; } = new();
 
     pubsContext()
     {
