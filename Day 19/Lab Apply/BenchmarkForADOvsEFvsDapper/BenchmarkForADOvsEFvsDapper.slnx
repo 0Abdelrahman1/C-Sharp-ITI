@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ADO Project/ADO Project.csproj" />
+  <Project Path="BenchmarkForADOvsEFvsDapper/BenchmarkForADOvsEFvsDapper.csproj" />
+  <Project Path="DapperProject/DapperProject.csproj" />
+  <Project Path="EFCoreProject/EFCoreProject.csproj" />
+</Solution>
