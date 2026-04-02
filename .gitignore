@@ -27,6 +27,7 @@ Day */**
 !Projects/
 !Projects/**
 Projects/**/secret/
+Projects/**/*.config
 
 
 
@@ -65,3 +66,6 @@ Release/
 
 # Windows Forms user-specific settings
 *.settings
+
+# no .mp4
+*.mp4

@@ -1,18 +1,26 @@
-﻿using MetroFramework.Forms;
-using MetroFramework.Fonts;
+﻿using HotelManagementSystem.Context.FrontendReservation;
+using HotelManagementSystem.Entities.FrontendReservation;
 using MetroFramework.Drawing;
+using MetroFramework.Fonts;
+using MetroFramework.Forms;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration;
 using Twilio;
+using static System.Windows.Forms.AxHost;
 namespace HotelManagementSystem.UI
 {
     public partial class Frontend : MetroForm
@@ -272,6 +280,8 @@ namespace HotelManagementSystem.UI
         private void SendSMS(int secondUserID)
         {
             //creating an instance of twilio rest
+            string AccountSid = ConfigurationManager.AppSettings["Twilio:AccountSid"];
+            string AuthToken = ConfigurationManager.AppSettings["Twilio:AuthToken"];
             var twilio = new TwilioRestClient(AccountSid, AuthToken);
             string name = firstNameTextBox.Text + " " + lastNameTextBox.Text;
 
@@ -328,6 +338,68 @@ namespace HotelManagementSystem.UI
             //GetOccupiedRoom();
             //ReservedRoom();
             //getChecked();
+            //throw new NotImplementedException();
+            Trace.WriteLine("In submitButton_Click(object sender, EventArgs e)");
+
+            FrontendReservationContext frontendReservationContext = new();
+
+            birthday = (monthComboBox.SelectedItem) + "-" + (dayComboBox.SelectedIndex + 1) + "-" + yearTextBox.Text;
+            try
+            {
+                var reservation = new Reservation()
+                {
+                    FirstName = firstNameTextBox.Text,
+                    LastName = lastNameTextBox.Text,
+                    BirthDay = birthday,
+                    Gender = genderComboBox.SelectedItem?.ToString(),
+                    PhoneNumber = phoneNumberTextBox.Text,
+                    EmailAddress = emailTextBox.Text,
+                    NumberGuest = qtGuestComboBox.SelectedIndex + 1,
+                    StreetAddress = addLabel.Text,
+                    AptSuite = aptTextBox.Text,
+                    City = cityTextBox.Text,
+                    State = stateComboBox.SelectedItem?.ToString(),
+                    ZipCode = zipComboBox.Text,
+                    RoomType = roomTypeComboBox.SelectedItem?.ToString(),
+                    RoomFloor = floorComboBox.SelectedItem?.ToString(),
+                    RoomNumber = roomTypeComboBox.SelectedItem?.ToString(),
+                    TotalBill = (float)finalizedTotalAmount,
+                    PaymentType = paymentType,
+                    CardType = CardType,
+                    CardNumber = paymentCardNumber,
+                    CardExp = MM_YY_Of_Card,
+                    CardCvc = CVC_Of_Card,
+                    ArrivalTime = entryDatePicker.Value,
+                    LeavingTime = depDatePicker.Value,
+                    CheckIn = Convert.ToBoolean(Convert.ToInt32(checkin)),
+                    BreakFast = breakfast,
+                    Lunch = lunch,
+                    Dinner = dinner,
+                    SupplyStatus = Convert.ToBoolean(Convert.ToInt32(foodStatus)),
+                    Cleaning = Convert.ToBoolean(Convert.ToInt32(cleaning)),
+                    Towel = Convert.ToBoolean(Convert.ToInt32(towel)),
+                    SSurprise = Convert.ToBoolean(Convert.ToInt32(surprise)),
+                    FoodBill = foodBill
+                };
+                frontendReservationContext.Add(reservation);
+                if (frontendReservationContext.SaveChanges() > 0)
+                    MetroFramework.MetroMessageBox.Show(this, "Entry successfully inserted into database. \n\nProvide this unique ID to the customer.\n\nUSER UNIQUE ID: " + reservation.Id, "Report", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                frontendReservationContext.Dispose();
+            }
+
+            ComboBoxItemsFromDataBase();
+            LoadForDataGridView();
+            reset_frontend();
+            GetOccupiedRoom();
+            ReservedRoom();
+            getChecked();
         }
 
         private void newButton_Click(object sender, EventArgs e)
@@ -427,51 +499,145 @@ namespace HotelManagementSystem.UI
             //GetOccupiedRoom();
             //ReservedRoom();
             //getChecked();
+            //throw new NotImplementedException();
+            Trace.WriteLine("In deleteButton_Click(object sender, EventArgs e)");
+
+
+
+            using FrontendReservationContext frontendReservationContext = new FrontendReservationContext();
+            if (primartyID > 1000)
+            {
+                try
+                {
+                    var reservation = frontendReservationContext.Reservations.SingleOrDefault(R => R.Id == primartyID);
+                    if (reservation == null)
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, "Selected reservation not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    frontendReservationContext.Remove(reservation);
+
+                    if (frontendReservationContext.SaveChanges() > 0)
+                        MetroFramework.MetroMessageBox.Show(this, "Reservation For the UNIQUE USER ID of: \n\n " + primartyID + " is DELETED.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                catch (Exception ex)
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Selected ID doesn't exist." + ex.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                }
+            }
+            else
+                MetroFramework.MetroMessageBox.Show(this, "Selected ID doesn't exist.", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+            ComboBoxItemsFromDataBase();
+            LoadForDataGridView();
+            reset_frontend();
+            GetOccupiedRoom();
+            ReservedRoom();
+            getChecked();
+            
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-           // birthday = (monthComboBox.SelectedItem) + "-" + (dayComboBox.SelectedIndex + 1) + "-" + yearTextBox.Text;
-           //// MessageBox.Show(Convert.ToString(cleaning) + " " + Convert.ToString(towel) + " " + Convert.ToString(surprise));
-           // string query = "update reservation set first_name ='" + firstNameTextBox.Text +
-           //   "', last_name ='" + lastNameTextBox.Text + "', birth_day='" + birthday + "', gender='" + genderComboBox.SelectedItem + "', phone_number='" + phoneNumberTextBox.Text + "', email_address='" + emailTextBox.Text +
-           //   "', number_guest='" + (qtGuestComboBox.SelectedIndex + 1) + "', street_address='" + addLabel.Text + "', apt_suite='" + aptTextBox.Text + "', city='" + cityTextBox.Text +
-           //   "', state='" + stateComboBox.SelectedItem + "', zip_code='" + zipComboBox.Text + "', room_type='" + roomTypeComboBox.SelectedItem + "', room_floor='" + floorComboBox.SelectedItem +
-           //   "', room_number='" + roomNComboBox.SelectedItem + "', total_bill='" + finalizedTotalAmount + "', payment_type='" + paymentType +
-           //   "', card_type ='" + CardType + "', card_number='" + paymentCardNumber + "',card_exp='" + MM_YY_Of_Card + "', card_cvc='" + CVC_Of_Card + "', arrival_time='" + entryDatePicker.Text + "', leaving_time='" + depDatePicker.Text + "', break_fast='" + breakfast +
-           //   "', check_in='" + checkin + "', lunch='" + lunch + "', dinner='" + dinner + "', supply_status='" + foodStatus + "',cleaning='" + Convert.ToInt32(cleaning) + "',towel='" + Convert.ToInt32(towel) + "',s_surprise='" + Convert.ToInt32(surprise) + "',food_bill='" + foodBill + "' WHERE Id = '" + primartyID + "';";
+            // birthday = (monthComboBox.SelectedItem) + "-" + (dayComboBox.SelectedIndex + 1) + "-" + yearTextBox.Text;
+            //// MessageBox.Show(Convert.ToString(cleaning) + " " + Convert.ToString(towel) + " " + Convert.ToString(surprise));
+            // string query = "update reservation set first_name ='" + firstNameTextBox.Text +
+            //   "', last_name ='" + lastNameTextBox.Text + "', birth_day='" + birthday + "', gender='" + genderComboBox.SelectedItem + "', phone_number='" + phoneNumberTextBox.Text + "', email_address='" + emailTextBox.Text +
+            //   "', number_guest='" + (qtGuestComboBox.SelectedIndex + 1) + "', street_address='" + addLabel.Text + "', apt_suite='" + aptTextBox.Text + "', city='" + cityTextBox.Text +
+            //   "', state='" + stateComboBox.SelectedItem + "', zip_code='" + zipComboBox.Text + "', room_type='" + roomTypeComboBox.SelectedItem + "', room_floor='" + floorComboBox.SelectedItem +
+            //   "', room_number='" + roomNComboBox.SelectedItem + "', total_bill='" + finalizedTotalAmount + "', payment_type='" + paymentType +
+            //   "', card_type ='" + CardType + "', card_number='" + paymentCardNumber + "',card_exp='" + MM_YY_Of_Card + "', card_cvc='" + CVC_Of_Card + "', arrival_time='" + entryDatePicker.Text + "', leaving_time='" + depDatePicker.Text + "', break_fast='" + breakfast +
+            //   "', check_in='" + checkin + "', lunch='" + lunch + "', dinner='" + dinner + "', supply_status='" + foodStatus + "',cleaning='" + Convert.ToInt32(cleaning) + "',towel='" + Convert.ToInt32(towel) + "',s_surprise='" + Convert.ToInt32(surprise) + "',food_bill='" + foodBill + "' WHERE Id = '" + primartyID + "';";
 
-           // SqlConnection connection = new SqlConnection(Hotel_Manager.Properties.Settings.Default.frontend_reservationConnectionString);
-           
-           // SqlCommand query_table = new SqlCommand(query, connection);
-           // SqlDataReader reader;
-           // try
-           // {
-           //     connection.Open();
-           //     string userID = Convert.ToString(primartyID);
-           //     reader = query_table.ExecuteReader();
+            // SqlConnection connection = new SqlConnection(Hotel_Manager.Properties.Settings.Default.frontend_reservationConnectionString);
 
-           //     MetroFramework.MetroMessageBox.Show(this, "Entry successfully updated into database. For the UNIQUE USER ID of: " + "\n\n" +
-           //     " " + userID, "Report", MessageBoxButtons.OK, MessageBoxIcon.Question);
-           //     SendSMS(primartyID);
-           //     while (reader.Read())
-           //     {
+            // SqlCommand query_table = new SqlCommand(query, connection);
+            // SqlDataReader reader;
+            // try
+            // {
+            //     connection.Open();
+            //     string userID = Convert.ToString(primartyID);
+            //     reader = query_table.ExecuteReader();
 
-           //     }
-           //     connection.Close();
-           // }
-           // catch (Exception ex)
-           // {
-           //     MessageBox.Show(ex.Message);
-           // }
+            //     MetroFramework.MetroMessageBox.Show(this, "Entry successfully updated into database. For the UNIQUE USER ID of: " + "\n\n" +
+            //     " " + userID, "Report", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            //     SendSMS(primartyID);
+            //     while (reader.Read())
+            //     {
 
-           // ComboBoxItemsFromDataBase();
+            //     }
+            //     connection.Close();
+            // }
+            // catch (Exception ex)
+            // {
+            //     MessageBox.Show(ex.Message);
+            // }
 
-           // reset_frontend();
-           // LoadForDataGridView();
-           // GetOccupiedRoom();
-           // ReservedRoom();
-           // getChecked();
+            // ComboBoxItemsFromDataBase();
+
+            // reset_frontend();
+            // LoadForDataGridView();
+            // GetOccupiedRoom();
+            // ReservedRoom();
+            // getChecked();
+            // throw new NotImplementedException();
+
+            FrontendReservationContext frontendReservationContext = new FrontendReservationContext();
+            try
+            {
+                birthday = (monthComboBox.SelectedItem) + "-" + (dayComboBox.SelectedIndex + 1) + "-" + yearTextBox.Text;
+                var reservation = frontendReservationContext.Reservations.Single(R => R.Id == primartyID);
+                reservation.FirstName = firstNameTextBox.Text;
+                reservation.LastName = lastNameTextBox.Text;
+                reservation.BirthDay = birthday;
+                reservation.Gender = genderComboBox.SelectedItem?.ToString();
+                reservation.PhoneNumber = phoneNumberTextBox.Text;
+                reservation.EmailAddress = emailTextBox.Text;
+                reservation.NumberGuest = qtGuestComboBox.SelectedIndex + 1;
+                reservation.StreetAddress = addLabel.Text;
+                reservation.AptSuite = aptTextBox.Text;
+                reservation.City = cityTextBox.Text;
+                reservation.State = stateComboBox.SelectedItem?.ToString();
+                reservation.ZipCode = zipComboBox.Text;
+                reservation.RoomType = roomTypeComboBox.SelectedItem?.ToString();
+                reservation.RoomFloor = floorComboBox.SelectedItem?.ToString();
+                reservation.RoomNumber = roomTypeComboBox.SelectedItem?.ToString();
+                reservation.TotalBill = (float)finalizedTotalAmount;
+                reservation.PaymentType = paymentType;
+                reservation.CardType = CardType;
+                reservation.CardNumber = paymentCardNumber;
+                reservation.CardExp = MM_YY_Of_Card;
+                reservation.CardCvc = CVC_Of_Card;
+                reservation.ArrivalTime = entryDatePicker.Value;
+                reservation.LeavingTime = depDatePicker.Value;
+                reservation.BreakFast = breakfast;
+                reservation.CheckIn = Convert.ToBoolean(Convert.ToInt32(checkin));
+                reservation.Lunch = lunch;
+                reservation.Dinner = dinner;
+                reservation.SupplyStatus = Convert.ToBoolean(Convert.ToInt32(foodStatus));
+                reservation.Cleaning = Convert.ToBoolean(Convert.ToInt32(cleaning));
+                reservation.Towel = Convert.ToBoolean(Convert.ToInt32(towel));
+                reservation.SSurprise = Convert.ToBoolean(Convert.ToInt32(surprise));
+                reservation.FoodBill = foodBill;
+
+                if (frontendReservationContext.SaveChanges() > 0)
+                    MetroFramework.MetroMessageBox.Show(this, "Entry successfully updated into database. For the UNIQUE USER ID of: \n\n " + reservation.Id, "Report", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                SendSMS(primartyID);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                frontendReservationContext.Dispose();
+            }
+            ComboBoxItemsFromDataBase();
+            reset_frontend();
+            LoadForDataGridView();
+            GetOccupiedRoom();
+            ReservedRoom();
+            getChecked();
         }
 
         private void checkinCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -490,177 +656,286 @@ namespace HotelManagementSystem.UI
 
         private void resEditButton_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //  getChecked();
-          //  string getQuerystring = resEditButton.Text.Substring(0, 4).Replace(" ", string.Empty);
-          ////  MessageBox.Show("ID+" + getQuerystring);
-          //  string query = "Select * from reservation where Id= '" + getQuerystring + "'";
+            //  getChecked();
+            //  string getQuerystring = resEditButton.Text.Substring(0, 4).Replace(" ", string.Empty);
+            ////  MessageBox.Show("ID+" + getQuerystring);
+            //  string query = "Select * from reservation where Id= '" + getQuerystring + "'";
 
-          //  SqlConnection connection = new SqlConnection(Hotel_Manager.Properties.Settings.Default.frontend_reservationConnectionString);
-          //  SqlCommand query_table = new SqlCommand(query, connection);
-          //  SqlDataReader reader;
-          //  try
-          //  {
-          //      connection.Open();
-          //      reader = query_table.ExecuteReader();
-          //      while (reader.Read())
-          //      {
-          //          taskFinder = true;
-          //          string ID = reader["Id"].ToString();
-          //          string first_name = reader["first_name"].ToString();
-          //          string last_name = reader["last_name"].ToString();
-          //          string birth_day = reader["birth_day"].ToString();
-          //          string gender = reader["gender"].ToString();
-          //          string phone_number = reader["phone_number"].ToString();
-          //          string email_address = reader["email_address"].ToString();
-          //          string number_guest = reader["number_guest"].ToString();
-          //          string street_address = reader["street_address"].ToString();
-          //          string apt_suite = reader["apt_suite"].ToString();
-          //          string city = reader["city"].ToString();
-          //          string state = reader["state"].ToString();
-          //          string zip_code = reader["zip_code"].ToString();
+            //  SqlConnection connection = new SqlConnection(Hotel_Manager.Properties.Settings.Default.frontend_reservationConnectionString);
+            //  SqlCommand query_table = new SqlCommand(query, connection);
+            //  SqlDataReader reader;
+            //  try
+            //  {
+            //      connection.Open();
+            //      reader = query_table.ExecuteReader();
+            //      while (reader.Read())
+            //      {
+            //          taskFinder = true;
+            //          string ID = reader["Id"].ToString();
+            //          string first_name = reader["first_name"].ToString();
+            //          string last_name = reader["last_name"].ToString();
+            //          string birth_day = reader["birth_day"].ToString();
+            //          string gender = reader["gender"].ToString();
+            //          string phone_number = reader["phone_number"].ToString();
+            //          string email_address = reader["email_address"].ToString();
+            //          string number_guest = reader["number_guest"].ToString();
+            //          string street_address = reader["street_address"].ToString();
+            //          string apt_suite = reader["apt_suite"].ToString();
+            //          string city = reader["city"].ToString();
+            //          string state = reader["state"].ToString();
+            //          string zip_code = reader["zip_code"].ToString();
 
-          //          string room_type = reader["room_type"].ToString();
-          //          string room_floor = reader["room_floor"].ToString();
-          //          string room_number = reader["room_number"].ToString();
+            //          string room_type = reader["room_type"].ToString();
+            //          string room_floor = reader["room_floor"].ToString();
+            //          string room_number = reader["room_number"].ToString();
 
-          //          string payment_type = reader["payment_type"].ToString();
-          //          string card_number = reader["card_number"].ToString();
-          //          string card_exp = reader["card_exp"].ToString();
-          //          string card_cvc = reader["card_cvc"].ToString();
+            //          string payment_type = reader["payment_type"].ToString();
+            //          string card_number = reader["card_number"].ToString();
+            //          string card_exp = reader["card_exp"].ToString();
+            //          string card_cvc = reader["card_cvc"].ToString();
 
-          //          string _cleaning = reader["cleaning"].ToString();
-          //          string _towel = reader["towel"].ToString();
-          //          string _surprise = reader["s_surprise"].ToString();
-          //          if (_cleaning == "True")
-          //          {
-          //              cleaning = "1";
-          //          }
-          //          else { cleaning = "0"; }
+            //          string _cleaning = reader["cleaning"].ToString();
+            //          string _towel = reader["towel"].ToString();
+            //          string _surprise = reader["s_surprise"].ToString();
+            //          if (_cleaning == "True")
+            //          {
+            //              cleaning = "1";
+            //          }
+            //          else { cleaning = "0"; }
 
-          //          if (_towel == "True")
-          //          {
-          //              towel = "1";
-          //          }
-          //          else { towel = "0"; }
-          //          if (_surprise == "True")
-          //          {
-          //              surprise = "1";
-          //          }
-          //          else
-          //          {
-          //              surprise = "0";
-          //          }
-          //          roomNComboBox.Items.Add(room_number);
-          //          roomNComboBox.SelectedItem = room_number;
+            //          if (_towel == "True")
+            //          {
+            //              towel = "1";
+            //          }
+            //          else { towel = "0"; }
+            //          if (_surprise == "True")
+            //          {
+            //              surprise = "1";
+            //          }
+            //          else
+            //          {
+            //              surprise = "0";
+            //          }
+            //          roomNComboBox.Items.Add(room_number);
+            //          roomNComboBox.SelectedItem = room_number;
 
-          //          FPayment = payment_type; FCnumber = card_number;
-          //          FCardCVC = card_cvc; FcardExpOne = card_exp.Substring(0, card_exp.IndexOf('/'));
-          //          FcardExpTwo = card_exp.Substring(card_exp.Length - Math.Min(2, card_exp.Length));
-          //          string check_in = reader["check_in"].ToString();
+            //          FPayment = payment_type; FCnumber = card_number;
+            //          FCardCVC = card_cvc; FcardExpOne = card_exp.Substring(0, card_exp.IndexOf('/'));
+            //          FcardExpTwo = card_exp.Substring(card_exp.Length - Math.Min(2, card_exp.Length));
+            //          string check_in = reader["check_in"].ToString();
 
-          //          string supply_status = reader["supply_status"].ToString();
-          //          string food_billD = reader["food_bill"].ToString();
+            //          string supply_status = reader["supply_status"].ToString();
+            //          string food_billD = reader["food_bill"].ToString();
 
-          //          string arrival_date = Convert.ToDateTime(reader["arrival_time"]).ToString("MM-dd-yyyy").Replace(" ", string.Empty);
-          //          entryDatePicker.Value = Convert.ToDateTime(arrival_date);
+            //          string arrival_date = Convert.ToDateTime(reader["arrival_time"]).ToString("MM-dd-yyyy").Replace(" ", string.Empty);
+            //          entryDatePicker.Value = Convert.ToDateTime(arrival_date);
 
-          //          string leaving_date = Convert.ToDateTime(reader["leaving_time"]).ToString("MM-dd-yyyy").Replace(" ", string.Empty);
-          //          depDatePicker.Value = Convert.ToDateTime(leaving_date);
-          //          entryDatePicker.Value.ToShortDateString();
-          //          depDatePicker.Value.ToShortDateString();
+            //          string leaving_date = Convert.ToDateTime(reader["leaving_time"]).ToString("MM-dd-yyyy").Replace(" ", string.Empty);
+            //          depDatePicker.Value = Convert.ToDateTime(leaving_date);
+            //          entryDatePicker.Value.ToShortDateString();
+            //          depDatePicker.Value.ToShortDateString();
 
-          //          string _breakfast = reader["break_fast"].ToString();
-          //          string _lunch = reader["lunch"].ToString();
-          //          string _dinner = reader["dinner"].ToString();
+            //          string _breakfast = reader["break_fast"].ToString();
+            //          string _lunch = reader["lunch"].ToString();
+            //          string _dinner = reader["dinner"].ToString();
 
-          //          double Num;
-          //          bool isNum = double.TryParse(_lunch, out Num);
-          //          if (isNum)
-          //          {
-          //              lunch = Int32.Parse(_lunch);
-          //          }
-          //          else
-          //          {
-          //              lunch = 0;
-          //          }
-          //          isNum = double.TryParse(_breakfast, out Num);
-          //          if (isNum)
-          //          {
-          //              breakfast = Int32.Parse(_breakfast);
-          //          }
-          //          else
-          //          {
-          //              breakfast = 0;
-          //          }
-          //          isNum = double.TryParse(_dinner, out Num);
-          //          if (isNum)
-          //          {
-          //              dinner = Int32.Parse(_dinner);
-          //          }
-          //          else
-          //          {
-          //              dinner = 0;
-          //          }
-
-
-
-          //          foodBill = Convert.ToInt32(food_billD);
-
-          //          if (supply_status == "True")
-          //          {
-          //              foodSupplyCheckBox.Checked = true;
-          //          }
-          //          else
-          //          {
-          //              foodSupplyCheckBox.Checked = false;
-          //          }
+            //          double Num;
+            //          bool isNum = double.TryParse(_lunch, out Num);
+            //          if (isNum)
+            //          {
+            //              lunch = Int32.Parse(_lunch);
+            //          }
+            //          else
+            //          {
+            //              lunch = 0;
+            //          }
+            //          isNum = double.TryParse(_breakfast, out Num);
+            //          if (isNum)
+            //          {
+            //              breakfast = Int32.Parse(_breakfast);
+            //          }
+            //          else
+            //          {
+            //              breakfast = 0;
+            //          }
+            //          isNum = double.TryParse(_dinner, out Num);
+            //          if (isNum)
+            //          {
+            //              dinner = Int32.Parse(_dinner);
+            //          }
+            //          else
+            //          {
+            //              dinner = 0;
+            //          }
 
 
-          //          firstNameTextBox.Text = first_name;
-          //          lastNameTextBox.Text = last_name;
-          //          phoneNumberTextBox.Text = phone_number;
-          //          genderComboBox.SelectedItem = gender;
 
-          //          monthComboBox.SelectedItem = birth_day.Substring(0, birth_day.IndexOf('-'));
-          //          dayComboBox.SelectedItem = birth_day.Substring(birth_day.IndexOf('-') + 1, 2);
-          //          yearTextBox.Text = birth_day.Substring(birth_day.Length - Math.Min(4, birth_day.Length));
+            //          foodBill = Convert.ToInt32(food_billD);
 
-          //          emailTextBox.Text = email_address;
-          //          qtGuestComboBox.SelectedItem = number_guest;
-          //          addLabel.Text = street_address;
-          //          aptTextBox.Text = apt_suite;
-          //          cityTextBox.Text = city;
-          //          stateComboBox.SelectedItem = state;
-          //          zipComboBox.Text = zip_code;
-          //          roomTypeComboBox.SelectedItem = room_type.Replace(" ", string.Empty);
-          //          floorComboBox.SelectedItem = room_floor.Replace(" ", string.Empty);
-          //          roomNComboBox.SelectedItem = room_number.Replace(" ", string.Empty);
-
-          //          if (check_in == "True")
-          //          {
-          //              checkinCheckBox.Checked = true;
-          //          }
-          //          else
-          //          {
-          //              checkinCheckBox.Checked = false;
-          //          }
+            //          if (supply_status == "True")
+            //          {
+            //              foodSupplyCheckBox.Checked = true;
+            //          }
+            //          else
+            //          {
+            //              foodSupplyCheckBox.Checked = false;
+            //          }
 
 
-          //          primartyID = Convert.ToInt32(ID);
-          //      }
-          //      connection.Close();
-          //  }
-          //  catch (Exception ex)
-          //  {
-          //      MessageBox.Show("COMBOBOX Selection: + " + ex.Message);
-          //  }
+            //          firstNameTextBox.Text = first_name;
+            //          lastNameTextBox.Text = last_name;
+            //          phoneNumberTextBox.Text = phone_number;
+            //          genderComboBox.SelectedItem = gender;
+
+            //          monthComboBox.SelectedItem = birth_day.Substring(0, birth_day.IndexOf('-'));
+            //          dayComboBox.SelectedItem = birth_day.Substring(birth_day.IndexOf('-') + 1, 2);
+            //          yearTextBox.Text = birth_day.Substring(birth_day.Length - Math.Min(4, birth_day.Length));
+
+            //          emailTextBox.Text = email_address;
+            //          qtGuestComboBox.SelectedItem = number_guest;
+            //          addLabel.Text = street_address;
+            //          aptTextBox.Text = apt_suite;
+            //          cityTextBox.Text = city;
+            //          stateComboBox.SelectedItem = state;
+            //          zipComboBox.Text = zip_code;
+            //          roomTypeComboBox.SelectedItem = room_type.Replace(" ", string.Empty);
+            //          floorComboBox.SelectedItem = room_floor.Replace(" ", string.Empty);
+            //          roomNComboBox.SelectedItem = room_number.Replace(" ", string.Empty);
+
+            //          if (check_in == "True")
+            //          {
+            //              checkinCheckBox.Checked = true;
+            //          }
+            //          else
+            //          {
+            //              checkinCheckBox.Checked = false;
+            //          }
+
+
+            //          primartyID = Convert.ToInt32(ID);
+            //      }
+            //      connection.Close();
+            //  }
+            //  catch (Exception ex)
+            //  {
+            //      MessageBox.Show("COMBOBOX Selection: + " + ex.Message);
+            //  }
+            // throw new NotImplementedException();
+
+
+
+
+
+
+
+            Trace.WriteLine("In resEditButton_SelectedIndexChanged(object sender, EventArgs e)");
+
+
+            getChecked();
+            string getQuerystring = resEditButton.Text.Substring(0, 4).Replace(" ", string.Empty);
+            try
+            {
+                var reservation = new Dapper.ReservationManager().GetById(Convert.ToInt32(getQuerystring.Trim()));
+                taskFinder = true;
+                string ID = reservation.Id.ToString();
+                string first_name = reservation.LastName.ToString();
+                string last_name = reservation.LastName.ToString();
+                string birth_day = reservation.BirthDay.ToString();
+                string gender = reservation.Gender.ToString();
+                string phone_number = reservation.PhoneNumber.ToString();
+                string email_address = reservation.EmailAddress.ToString();
+                string number_guest = reservation.NumberGuest.ToString();
+                string street_address = reservation.StreetAddress.ToString();
+                string apt_suite = reservation.AptSuite.ToString();
+                string city = reservation.City.ToString();
+                string state = reservation.State.ToString();
+                string zip_code = reservation.ZipCode.ToString();
+
+                string room_type = reservation.RoomType.ToString();
+                string room_floor = reservation.RoomFloor.ToString();
+                string room_number = reservation.RoomNumber.ToString();
+
+                string payment_type = reservation.PaymentType.ToString();
+                string card_number = reservation.CardNumber.ToString();
+                string card_exp = reservation.CardExp.ToString();
+                string card_cvc = reservation.CardCvc.ToString();
+
+                string _cleaning = reservation.Cleaning.ToString();
+                string _towel = reservation.Towel.ToString();
+                string _surprise = reservation.SSurprise.ToString();
+                cleaning = _cleaning == "True" ? "1" : "0";
+                towel = _towel == "True" ? "1" : "0";
+                surprise = _surprise == "True" ? "1" : "0";
+                roomNComboBox.Items.Add(room_number);
+                roomNComboBox.SelectedItem = room_number;
+                FPayment = payment_type; FCnumber = card_number;
+                FCardCVC = card_cvc; FcardExpOne = card_exp.Substring(0, card_exp.IndexOf('/'));
+                FcardExpTwo = card_exp.Substring(card_exp.Length - Math.Min(2, card_exp.Length));
+
+                string check_in = reservation.CheckIn.ToString();
+
+                string supply_status = reservation.SupplyStatus.ToString();
+                string food_billD = reservation.FoodBill.ToString();
+
+                string arrival_date = reservation.ArrivalTime.ToString("MM-dd-yyyy").Replace(" ", string.Empty);
+                entryDatePicker.Value = Convert.ToDateTime(arrival_date);
+
+                string leaving_date = reservation.LeavingTime.ToString("MM-dd-yyyy").Replace(" ", string.Empty);
+                depDatePicker.Value = Convert.ToDateTime(leaving_date);
+                entryDatePicker.Value.ToShortDateString();
+                depDatePicker.Value.ToShortDateString();
+
+                string _breakfast = reservation.BreakFast.ToString();
+                string _lunch = reservation.Lunch.ToString();
+                string _dinner = reservation.Dinner.ToString();
+
+                bool isNum = double.TryParse(_lunch, out double Num);
+                lunch = isNum ? Int32.Parse(_lunch) : 0;
+
+                isNum = double.TryParse(_breakfast, out Num);
+                breakfast = isNum ? Int32.Parse(_breakfast) : 0;
+
+                isNum = double.TryParse(_dinner, out Num);
+                dinner = isNum ? Int32.Parse(_dinner) : 0;
+                    
+                foodBill = Convert.ToInt32(food_billD);
+
+                foodSupplyCheckBox.Checked = supply_status == "True";
+
+                firstNameTextBox.Text = first_name;
+                lastNameTextBox.Text = last_name;
+                phoneNumberTextBox.Text = phone_number;
+                genderComboBox.SelectedItem = gender;
+
+                monthComboBox.SelectedItem = birth_day.Substring(0, birth_day.IndexOf('-'));
+                dayComboBox.SelectedItem = birth_day.Substring(birth_day.IndexOf('-') + 1, 2);
+                yearTextBox.Text = birth_day.Substring(birth_day.Length - Math.Min(4, birth_day.Length));
+
+                emailTextBox.Text = email_address;
+                qtGuestComboBox.SelectedItem = number_guest;
+                addLabel.Text = street_address;
+                aptTextBox.Text = apt_suite;
+                cityTextBox.Text = city;
+                stateComboBox.SelectedItem = state;
+                zipComboBox.Text = zip_code;
+                roomTypeComboBox.SelectedItem = room_type.Replace(" ", string.Empty);
+                floorComboBox.SelectedItem = room_floor.Replace(" ", string.Empty);
+                roomNComboBox.SelectedItem = room_number.Replace(" ", string.Empty);
+
+                checkinCheckBox.Checked = check_in == "True";
+                primartyID = Convert.ToInt32(ID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("COMBOBOX Selection: + " + ex.Message);
+            }
         }
 
         private void ComboBoxItemsFromDataBase()
         {
             //string query = "Select * from reservation";
             //SqlConnection connection = new SqlConnection(Hotel_Manager.Properties.Settings.Default.frontend_reservationConnectionString);
-            
+
             //SqlCommand query_table = new SqlCommand(query, connection);
             //SqlDataReader reader;
             //try
@@ -682,6 +957,26 @@ namespace HotelManagementSystem.UI
             //{
             //    MessageBox.Show(ex.Message);
             //}
+            //throw new NotImplementedException();
+
+            Trace.WriteLine("In ComboBoxItemsFromDataBase()");
+
+            try
+            {
+                var reservations = new Dapper.ReservationManager().GetAll();
+                foreach (Reservation reservation in reservations)
+                {
+                    string ID = reservation.Id.ToString();
+                    string first_name = reservation.FirstName.ToString();
+                    string last_name = reservation.LastName.ToString();
+                    string phone_number = reservation.PhoneNumber.ToString();
+                    resEditButton.Items.Add(ID + "  | " + first_name + "  " + last_name + " | " + phone_number);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void LoadForDataGridView()
@@ -705,6 +1000,22 @@ namespace HotelManagementSystem.UI
             //{
             //    MetroFramework.MetroMessageBox.Show(this, "Error loading data", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.None);
             //}
+            //throw new NotImplementedException();
+
+
+            Trace.WriteLine("In LoadForDataGridView()");
+
+            try
+            {
+                var reservations = new Dapper.ReservationManager().GetAll();
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = reservations;
+                resTotalDataGridView.DataSource = bindingSource;
+            }
+            catch (Exception)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Error loading data", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.None);
+            }
         }
 
         private void foodSupplyCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -756,6 +1067,38 @@ namespace HotelManagementSystem.UI
             //{
             //    MessageBox.Show(ex.Message);
             //}
+            //throw new NotImplementedException();
+
+
+
+            Trace.WriteLine("In GetOccupiedRoom()");
+
+            roomOccupiedListBox.Items.Clear();
+            try
+            {
+                var reservations = new Dapper.ReservationManager().GetByCheckIn(true);
+                foreach (var reservation in reservations)
+                {
+                    string room_number = reservation.RoomNumber.ToString();
+                    string room_type = reservation.RoomType.ToString();
+                    string ID = reservation.Id.ToString();
+                    string first_name = reservation.FirstName.ToString();
+                    string last_name = reservation.LastName.ToString();
+                    string phone_number = reservation.PhoneNumber.ToString();
+                    string arrival_time = reservation.ArrivalTime.ToString();
+                    string dep_time = reservation.LeavingTime.ToString();
+                    roomOccupiedListBox.Items.Add("[" + room_number.Replace(" ", string.Empty) + "]" +
+                        " " + room_type.Replace(" ", string.Empty) +
+                        " " + ID.Replace(" ", string.Empty) +
+                        " " + "[" + first_name.Replace(" ", string.Empty) +
+                        " " + last_name.Replace(" ", string.Empty) + "]" +
+                        " " + phone_number.Replace(" ", string.Empty));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -798,9 +1141,46 @@ namespace HotelManagementSystem.UI
             //{
             //    MessageBox.Show(ex.Message);
             //}
+            //throw new NotImplementedException();
 
+
+
+            Trace.WriteLine("In ReservedRoom()");
+
+
+            roomReservedListBox.Items.Clear();
+            try
+            {
+                var reservations = new Dapper.ReservationManager().GetByCheckIn(false);
+                foreach (var reservation in reservations)
+                {
+
+                    string room_number = reservation.RoomNumber.ToString();
+                    string room_type = reservation.RoomType.ToString();
+                    string ID = reservation.Id.ToString();
+                    string first_name = reservation.FirstName.ToString();
+                    string last_name = reservation.LastName.ToString();
+                    string phone_number = reservation.PhoneNumber.ToString();
+
+                    string arrival_date = reservation.ArrivalTime.ToString("MM-dd-yyyy");
+                    string leaving_date = reservation.LeavingTime.ToString("MM-dd-yyy");
+
+                    roomReservedListBox.Items.Add("[" + room_number.Replace(" ", string.Empty) + "]" +
+                        " " + room_type.Replace(" ", string.Empty) +
+                        " " + ID.Replace(" ", string.Empty) +
+                        " " + first_name.Replace(" ", string.Empty) +
+                        " " + last_name.Replace(" ", string.Empty) +
+                        " " + phone_number.Replace(" ", string.Empty) +
+                        " " + arrival_date.Replace(" ", string.Empty) +
+                        " " + leaving_date.Replace(" ", string.Empty));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-        
+
 
         private void getChecked()
         {
@@ -837,6 +1217,35 @@ namespace HotelManagementSystem.UI
             //        roomNComboBox.Items.RemoveAt(temp);
             //    }
             //}
+            //throw new NotImplementedException();
+
+
+
+            Trace.WriteLine("In getChecked()");
+
+
+            List<string> TakenRoomList = new List<string>();
+            try
+            {
+                var reservations = new Dapper.ReservationManager().GetByCheckIn(true);
+                foreach (var reservation in reservations)
+                {
+                    string room_number = reservation.RoomNumber.ToString();
+                    TakenRoomList.Add(room_number.Replace(" ", string.Empty));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            foreach (string roomList in TakenRoomList)
+                if (roomNComboBox.Items.Contains(roomList))
+                {
+                    int temp = roomNComboBox.Items.IndexOf(roomList);
+                    roomNComboBox.Items.RemoveAt(temp);
+                }
+
         }
 
         private void phoneNumberTextBox_Leave(object sender, EventArgs e)
@@ -848,41 +1257,66 @@ namespace HotelManagementSystem.UI
         }
         private void searchButton_Click(object sender, EventArgs e)
         {
-          //SqlConnection connection = new SqlConnection(Hotel_Manager.Properties.Settings.Default.frontend_reservationConnectionString);
-            
-          //  connection.Open();
-          //  string query = "Select * from reservation where Id like '%" + searchTextBox.Text + "%' OR last_name like '%" + searchTextBox.Text + "%' OR first_name like '%" + searchTextBox.Text + "%' OR gender like '%" + searchTextBox.Text + "%' OR state like '%" + searchTextBox.Text + "%' OR city like '%" + searchTextBox.Text + "%' OR room_number like '%" + searchTextBox.Text + "%' OR room_type like '%" + searchTextBox.Text + "%' OR email_address like '%" + searchTextBox.Text + "%' OR phone_number like '%" + searchTextBox.Text + "%'";
-           
-          //  SqlCommand com = new SqlCommand(query, connection);
-          //  SqlDataAdapter data_adapter = new SqlDataAdapter(query, connection);
-          //  DataTable data_table = new DataTable();
-            
-          //  data_adapter.Fill(data_table);
+            //SqlConnection connection = new SqlConnection(Hotel_Manager.Properties.Settings.Default.frontend_reservationConnectionString);
 
-          //  BindingSource bindingSource = new BindingSource();
-          //  bindingSource.DataSource = data_table;
-          //  searchDataGridView.DataSource = bindingSource;
-          //  data_adapter.Update(data_table);
+            //  connection.Open();
+            //  string query = "Select * from reservation where Id like '%" + searchTextBox.Text + "%' OR last_name like '%" + searchTextBox.Text + "%' OR first_name like '%" + searchTextBox.Text + "%' OR gender like '%" + searchTextBox.Text + "%' OR state like '%" + searchTextBox.Text + "%' OR city like '%" + searchTextBox.Text + "%' OR room_number like '%" + searchTextBox.Text + "%' OR room_type like '%" + searchTextBox.Text + "%' OR email_address like '%" + searchTextBox.Text + "%' OR phone_number like '%" + searchTextBox.Text + "%'";
 
-          //  SqlDataReader reader;
-          //  reader = com.ExecuteReader();
-          //  if (reader.HasRows)
-          //  {
-          //      reader.Read();
-          //      searchButton.Location = new Point(752, 7);
-          //      searchTextBox.Location = new Point(68, 7);
-          //      searchDataGridView.Visible = true;
-          //      SearchError.Visible = false;
+            //  SqlCommand com = new SqlCommand(query, connection);
+            //  SqlDataAdapter data_adapter = new SqlDataAdapter(query, connection);
+            //  DataTable data_table = new DataTable();
 
-          //  }
-          //  else
-          //  {
-          //      searchDataGridView.Visible = false;
-          //      SearchError.Visible = true;
-          //      SearchError.Text = "SORRY DUDE :(" +"\n"
-          //          +"I ran out of gas trying to search for "+ searchTextBox.Text +"\n"
-          //      +"I sure will find it next time."; 
-          //  }
+            //  data_adapter.Fill(data_table);
+
+            //  BindingSource bindingSource = new BindingSource();
+            //  bindingSource.DataSource = data_table;
+            //  searchDataGridView.DataSource = bindingSource;
+            //  data_adapter.Update(data_table);
+
+            //  SqlDataReader reader;
+            //  reader = com.ExecuteReader();
+            //  if (reader.HasRows)
+            //  {
+            //      reader.Read();
+            //      searchButton.Location = new Point(752, 7);
+            //      searchTextBox.Location = new Point(68, 7);
+            //      searchDataGridView.Visible = true;
+            //      SearchError.Visible = false;
+
+            //  }
+            //  else
+            //  {
+            //      searchDataGridView.Visible = false;
+            //      SearchError.Visible = true;
+            //      SearchError.Text = "SORRY DUDE :(" +"\n"
+            //          +"I ran out of gas trying to search for "+ searchTextBox.Text +"\n"
+            //      +"I sure will find it next time."; 
+            //  }
+            //throw new NotImplementedException();
+
+
+
+            Trace.WriteLine("In searchButton_Click(object sender, EventArgs e)");
+
+
+            var reservations = new Dapper.ReservationManager().SearchLikeBy(searchTextBox.Text);
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = reservations;
+            searchDataGridView.DataSource = bindingSource;
+
+            if (reservations.Count > 0)
+            {
+                searchButton.Location = new Point(752, 7);
+                searchTextBox.Location = new Point(68, 7);
+                searchDataGridView.Visible = true;
+                SearchError.Visible = false;
+            }
+            else
+            {
+                searchDataGridView.Visible = false;
+                SearchError.Visible = true;
+                SearchError.Text = "SORRY DUDE :(\nI ran out of gas trying to search for " + searchTextBox.Text + "\nI sure will find it next time.";
+            }
         }
 
     }

@@ -25,13 +25,13 @@ namespace HotelManagementSystem.UI
         {
             try
             {
-                if (verifier("frontend".Trim(), usernameTextBox.Text.Trim(), passwordTextBox.Text.Trim()))
+                if (verifier("Frontends".Trim(), usernameTextBox.Text.Trim(), passwordTextBox.Text.Trim()))
                 {
                     this.Hide();
                     Frontend hotel_management = new Frontend();
                     hotel_management.Show();
                 }
-                else if (verifier("kitchen".Trim(), usernameTextBox.Text.Trim(), passwordTextBox.Text.Trim()))
+                else if (verifier("Kitchens".Trim(), usernameTextBox.Text.Trim(), passwordTextBox.Text.Trim()))
                 {
                     this.Hide();
                     Kitchen kitchen_management = new Kitchen();
@@ -114,7 +114,26 @@ namespace HotelManagementSystem.UI
             //    MetroFramework.MetroMessageBox.Show(this, e.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             //}
             //return success;
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
+
+            try
+            {
+                switch(tableName)
+                {
+                    case "Frontends":
+                        new Dapper.FrontendManager().GetByUsernamePassword(username, password);
+                        break;
+                    case "Kitchens":
+                        new Dapper.KitchenManager().GetByUsernamePassword(username, password);
+                        break;
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                MetroFramework.MetroMessageBox.Show(this, e.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         private void login_FormClosing(object sender, FormClosingEventArgs e)

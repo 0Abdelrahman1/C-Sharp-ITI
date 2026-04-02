@@ -29,1222 +29,1053 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frontend));
-            this.resPanel = new MetroFramework.Controls.MetroTabControl();
-            this.reservationPage = new MetroFramework.Controls.MetroTabPage();
-            this.rightMPanel = new MetroFramework.Controls.MetroPanel();
-            this.resEditButton = new MetroFramework.Controls.MetroComboBox();
-            this.newButton = new MetroFramework.Controls.MetroButton();
-            this.deleteButton = new MetroFramework.Controls.MetroButton();
-            this.editButton = new MetroFramework.Controls.MetroButton();
-            this.updateButton = new MetroFramework.Controls.MetroButton();
-            this.middlePanel = new MetroFramework.Controls.MetroPanel();
-            this.smsCheckBox = new MetroFramework.Controls.MetroCheckBox();
-            this.foodSupplyCheckBox = new MetroFramework.Controls.MetroCheckBox();
-            this.checkinCheckBox = new MetroFramework.Controls.MetroCheckBox();
-            this.foodMenuButton = new MetroFramework.Controls.MetroButton();
-            this.qtGuestComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.finalizeButton = new MetroFramework.Controls.MetroButton();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.submitButton = new MetroFramework.Controls.MetroButton();
-            this.depDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.roomNComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.floorComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.entryDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.entryLabel = new MetroFramework.Controls.MetroLabel();
-            this.roomTypeComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.choiceLabel = new MetroFramework.Controls.MetroLabel();
-            this.leftMPanel = new MetroFramework.Controls.MetroPanel();
-            this.emailLabel = new MetroFramework.Controls.MetroLabel();
-            this.nameLabel = new MetroFramework.Controls.MetroLabel();
-            this.emailTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.yearTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.monthComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.genderComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.birthdayLabel = new MetroFramework.Controls.MetroLabel();
-            this.dayComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.phoneNumberLabel = new MetroFramework.Controls.MetroLabel();
-            this.firstNameTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.genderLabel = new MetroFramework.Controls.MetroLabel();
-            this.zipComboBox = new MetroFramework.Controls.MetroTextBox();
-            this.phoneNumberTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.stateComboBox = new MetroFramework.Controls.MetroComboBox();
-            this.lastNameTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.cityTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.aptTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.addLabel = new MetroFramework.Controls.MetroTextBox();
-            this.searchPage = new MetroFramework.Controls.MetroTabPage();
-            this.SearchError = new MetroFramework.Controls.MetroLabel();
-            this.searchDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchButton = new MetroFramework.Controls.MetroButton();
-            this.searchTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.resTotalDataGridView = new System.Windows.Forms.DataGridView();
-            this.roomPage = new MetroFramework.Controls.MetroTabPage();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.reservedLabel = new MetroFramework.Controls.MetroLabel();
-            this.roomReservedListBox = new System.Windows.Forms.ListBox();
-            this.roomOccupiedListBox = new System.Windows.Forms.ListBox();
-            this.occupiedLabel = new MetroFramework.Controls.MetroLabel();
-            this.resPanel.SuspendLayout();
-            this.reservationPage.SuspendLayout();
-            this.rightMPanel.SuspendLayout();
-            this.middlePanel.SuspendLayout();
-            this.leftMPanel.SuspendLayout();
-            this.searchPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).BeginInit();
-            this.metroTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.resTotalDataGridView)).BeginInit();
-            this.roomPage.SuspendLayout();
-            this.SuspendLayout();
+            resPanel = new MetroFramework.Controls.MetroTabControl();
+            reservationPage = new MetroFramework.Controls.MetroTabPage();
+            rightMPanel = new MetroFramework.Controls.MetroPanel();
+            resEditButton = new MetroFramework.Controls.MetroComboBox();
+            newButton = new MetroFramework.Controls.MetroButton();
+            deleteButton = new MetroFramework.Controls.MetroButton();
+            editButton = new MetroFramework.Controls.MetroButton();
+            updateButton = new MetroFramework.Controls.MetroButton();
+            middlePanel = new MetroFramework.Controls.MetroPanel();
+            smsCheckBox = new MetroFramework.Controls.MetroCheckBox();
+            foodSupplyCheckBox = new MetroFramework.Controls.MetroCheckBox();
+            checkinCheckBox = new MetroFramework.Controls.MetroCheckBox();
+            foodMenuButton = new MetroFramework.Controls.MetroButton();
+            qtGuestComboBox = new MetroFramework.Controls.MetroComboBox();
+            finalizeButton = new MetroFramework.Controls.MetroButton();
+            metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            submitButton = new MetroFramework.Controls.MetroButton();
+            depDatePicker = new DateTimePicker();
+            roomNComboBox = new MetroFramework.Controls.MetroComboBox();
+            floorComboBox = new MetroFramework.Controls.MetroComboBox();
+            entryDatePicker = new DateTimePicker();
+            entryLabel = new MetroFramework.Controls.MetroLabel();
+            roomTypeComboBox = new MetroFramework.Controls.MetroComboBox();
+            choiceLabel = new MetroFramework.Controls.MetroLabel();
+            leftMPanel = new MetroFramework.Controls.MetroPanel();
+            emailLabel = new MetroFramework.Controls.MetroLabel();
+            nameLabel = new MetroFramework.Controls.MetroLabel();
+            emailTextBox = new MetroFramework.Controls.MetroTextBox();
+            yearTextBox = new MetroFramework.Controls.MetroTextBox();
+            monthComboBox = new MetroFramework.Controls.MetroComboBox();
+            genderComboBox = new MetroFramework.Controls.MetroComboBox();
+            birthdayLabel = new MetroFramework.Controls.MetroLabel();
+            dayComboBox = new MetroFramework.Controls.MetroComboBox();
+            phoneNumberLabel = new MetroFramework.Controls.MetroLabel();
+            firstNameTextBox = new MetroFramework.Controls.MetroTextBox();
+            genderLabel = new MetroFramework.Controls.MetroLabel();
+            zipComboBox = new MetroFramework.Controls.MetroTextBox();
+            phoneNumberTextBox = new MetroFramework.Controls.MetroTextBox();
+            stateComboBox = new MetroFramework.Controls.MetroComboBox();
+            lastNameTextBox = new MetroFramework.Controls.MetroTextBox();
+            cityTextBox = new MetroFramework.Controls.MetroTextBox();
+            metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            aptTextBox = new MetroFramework.Controls.MetroTextBox();
+            addLabel = new MetroFramework.Controls.MetroTextBox();
+            searchPage = new MetroFramework.Controls.MetroTabPage();
+            SearchError = new MetroFramework.Controls.MetroLabel();
+            searchDataGridView = new DataGridView();
+            searchButton = new MetroFramework.Controls.MetroButton();
+            searchTextBox = new MetroFramework.Controls.MetroTextBox();
+            metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            resTotalDataGridView = new DataGridView();
+            roomPage = new MetroFramework.Controls.MetroTabPage();
+            metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            reservedLabel = new MetroFramework.Controls.MetroLabel();
+            roomReservedListBox = new ListBox();
+            roomOccupiedListBox = new ListBox();
+            occupiedLabel = new MetroFramework.Controls.MetroLabel();
+            resPanel.SuspendLayout();
+            reservationPage.SuspendLayout();
+            rightMPanel.SuspendLayout();
+            middlePanel.SuspendLayout();
+            leftMPanel.SuspendLayout();
+            searchPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)searchDataGridView).BeginInit();
+            metroTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)resTotalDataGridView).BeginInit();
+            roomPage.SuspendLayout();
+            SuspendLayout();
             // 
             // resPanel
             // 
-            this.resPanel.Controls.Add(this.reservationPage);
-            this.resPanel.Controls.Add(this.searchPage);
-            this.resPanel.Controls.Add(this.metroTabPage2);
-            this.resPanel.Controls.Add(this.roomPage);
-            this.resPanel.Location = new System.Drawing.Point(11, 73);
-            this.resPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.resPanel.Name = "resPanel";
-            this.resPanel.SelectedIndex = 0;
-            this.resPanel.Size = new System.Drawing.Size(1312, 593);
-            this.resPanel.Style = MetroFramework.MetroColorStyle.Green;
-            this.resPanel.TabIndex = 0;
-            this.resPanel.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.resPanel.UseSelectable = true;
+            resPanel.Controls.Add(reservationPage);
+            resPanel.Controls.Add(searchPage);
+            resPanel.Controls.Add(metroTabPage2);
+            resPanel.Controls.Add(roomPage);
+            resPanel.Location = new Point(10, 68);
+            resPanel.Margin = new Padding(4);
+            resPanel.Name = "resPanel";
+            resPanel.Padding = new Point(6, 8);
+            resPanel.SelectedIndex = 0;
+            resPanel.Size = new Size(1148, 556);
+            resPanel.Style = MetroFramework.MetroColorStyle.Green;
+            resPanel.TabIndex = 0;
+            resPanel.Theme = MetroFramework.MetroThemeStyle.Light;
+            resPanel.UseSelectable = true;
             // 
             // reservationPage
             // 
-            this.reservationPage.Controls.Add(this.rightMPanel);
-            this.reservationPage.Controls.Add(this.middlePanel);
-            this.reservationPage.Controls.Add(this.leftMPanel);
-            this.reservationPage.HorizontalScrollbarBarColor = true;
-            this.reservationPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.reservationPage.HorizontalScrollbarSize = 12;
-            this.reservationPage.Location = new System.Drawing.Point(4, 38);
-            this.reservationPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.reservationPage.Name = "reservationPage";
-            this.reservationPage.Size = new System.Drawing.Size(1304, 551);
-            this.reservationPage.Style = MetroFramework.MetroColorStyle.Green;
-            this.reservationPage.TabIndex = 0;
-            this.reservationPage.Text = "Reservation";
-            this.reservationPage.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.reservationPage.VerticalScrollbarBarColor = true;
-            this.reservationPage.VerticalScrollbarHighlightOnWheel = false;
-            this.reservationPage.VerticalScrollbarSize = 13;
+            reservationPage.Controls.Add(rightMPanel);
+            reservationPage.Controls.Add(middlePanel);
+            reservationPage.Controls.Add(leftMPanel);
+            reservationPage.HorizontalScrollbarBarColor = true;
+            reservationPage.HorizontalScrollbarHighlightOnWheel = false;
+            reservationPage.HorizontalScrollbarSize = 11;
+            reservationPage.Location = new Point(4, 38);
+            reservationPage.Margin = new Padding(4);
+            reservationPage.Name = "reservationPage";
+            reservationPage.Size = new Size(1140, 514);
+            reservationPage.Style = MetroFramework.MetroColorStyle.Green;
+            reservationPage.TabIndex = 0;
+            reservationPage.Text = "Reservation";
+            reservationPage.Theme = MetroFramework.MetroThemeStyle.Light;
+            reservationPage.VerticalScrollbarBarColor = true;
+            reservationPage.VerticalScrollbarHighlightOnWheel = false;
+            reservationPage.VerticalScrollbarSize = 11;
             // 
             // rightMPanel
             // 
-            this.rightMPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.rightMPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.rightMPanel.Controls.Add(this.resEditButton);
-            this.rightMPanel.Controls.Add(this.newButton);
-            this.rightMPanel.Controls.Add(this.deleteButton);
-            this.rightMPanel.Controls.Add(this.editButton);
-            this.rightMPanel.Controls.Add(this.updateButton);
-            this.rightMPanel.HorizontalScrollbarBarColor = true;
-            this.rightMPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.rightMPanel.HorizontalScrollbarSize = 12;
-            this.rightMPanel.Location = new System.Drawing.Point(944, 17);
-            this.rightMPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.rightMPanel.Name = "rightMPanel";
-            this.rightMPanel.Size = new System.Drawing.Size(353, 518);
-            this.rightMPanel.TabIndex = 34;
-            this.rightMPanel.UseCustomBackColor = true;
-            this.rightMPanel.UseCustomForeColor = true;
-            this.rightMPanel.UseStyleColors = true;
-            this.rightMPanel.VerticalScrollbarBarColor = true;
-            this.rightMPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.rightMPanel.VerticalScrollbarSize = 13;
+            rightMPanel.BackColor = Color.FromArgb(225, 225, 225);
+            rightMPanel.BackgroundImageLayout = ImageLayout.None;
+            rightMPanel.Controls.Add(resEditButton);
+            rightMPanel.Controls.Add(newButton);
+            rightMPanel.Controls.Add(deleteButton);
+            rightMPanel.Controls.Add(editButton);
+            rightMPanel.Controls.Add(updateButton);
+            rightMPanel.HorizontalScrollbarBarColor = true;
+            rightMPanel.HorizontalScrollbarHighlightOnWheel = false;
+            rightMPanel.HorizontalScrollbarSize = 11;
+            rightMPanel.Location = new Point(826, 16);
+            rightMPanel.Margin = new Padding(4);
+            rightMPanel.Name = "rightMPanel";
+            rightMPanel.Size = new Size(309, 486);
+            rightMPanel.TabIndex = 34;
+            rightMPanel.UseCustomBackColor = true;
+            rightMPanel.UseCustomForeColor = true;
+            rightMPanel.UseStyleColors = true;
+            rightMPanel.VerticalScrollbarBarColor = true;
+            rightMPanel.VerticalScrollbarHighlightOnWheel = false;
+            rightMPanel.VerticalScrollbarSize = 11;
             // 
             // resEditButton
             // 
-            this.resEditButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.resEditButton.ForeColor = System.Drawing.Color.Green;
-            this.resEditButton.FormattingEnabled = true;
-            this.resEditButton.ItemHeight = 24;
-            this.resEditButton.Items.AddRange(new object[] {
-            "[ID]    [NAME]    [PHONE NUMBER]"});
-            this.resEditButton.Location = new System.Drawing.Point(13, 37);
-            this.resEditButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.resEditButton.Name = "resEditButton";
-            this.resEditButton.PromptText = "Select reservation to edit";
-            this.resEditButton.Size = new System.Drawing.Size(335, 30);
-            this.resEditButton.TabIndex = 20;
-            this.resEditButton.UseCustomForeColor = true;
-            this.resEditButton.UseSelectable = true;
-            this.resEditButton.UseStyleColors = true;
-            this.resEditButton.Visible = false;
-            this.resEditButton.SelectedIndexChanged += new System.EventHandler(this.resEditButton_SelectedIndexChanged);
+            resEditButton.FlatStyle = FlatStyle.Popup;
+            resEditButton.ForeColor = Color.Green;
+            resEditButton.FormattingEnabled = true;
+            resEditButton.ItemHeight = 23;
+            resEditButton.Items.AddRange(new object[] { "[ID]    [NAME]    [PHONE NUMBER]" });
+            resEditButton.Location = new Point(11, 35);
+            resEditButton.Margin = new Padding(4);
+            resEditButton.Name = "resEditButton";
+            resEditButton.PromptText = "Select reservation to edit";
+            resEditButton.Size = new Size(294, 29);
+            resEditButton.TabIndex = 20;
+            resEditButton.UseCustomForeColor = true;
+            resEditButton.UseSelectable = true;
+            resEditButton.UseStyleColors = true;
+            resEditButton.Visible = false;
+            resEditButton.SelectedIndexChanged += resEditButton_SelectedIndexChanged;
             // 
             // newButton
             // 
-            this.newButton.Location = new System.Drawing.Point(13, 462);
-            this.newButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(327, 39);
-            this.newButton.Style = MetroFramework.MetroColorStyle.Green;
-            this.newButton.TabIndex = 22;
-            this.newButton.Text = "New reservation";
-            this.newButton.UseSelectable = true;
-            this.newButton.UseStyleColors = true;
-            this.newButton.Click += new System.EventHandler(this.newButton_Click);
+            newButton.Location = new Point(11, 433);
+            newButton.Margin = new Padding(4);
+            newButton.Name = "newButton";
+            newButton.Size = new Size(286, 37);
+            newButton.Style = MetroFramework.MetroColorStyle.Green;
+            newButton.TabIndex = 22;
+            newButton.Text = "New reservation";
+            newButton.UseSelectable = true;
+            newButton.UseStyleColors = true;
+            newButton.Click += newButton_Click;
             // 
             // deleteButton
             // 
-            this.deleteButton.Highlight = true;
-            this.deleteButton.Location = new System.Drawing.Point(13, 354);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(327, 42);
-            this.deleteButton.Style = MetroFramework.MetroColorStyle.Red;
-            this.deleteButton.TabIndex = 23;
-            this.deleteButton.Text = "Delete";
-            this.deleteButton.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.deleteButton.UseSelectable = true;
-            this.deleteButton.UseStyleColors = true;
-            this.deleteButton.Visible = false;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            deleteButton.Highlight = true;
+            deleteButton.Location = new Point(11, 332);
+            deleteButton.Margin = new Padding(4);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(286, 39);
+            deleteButton.Style = MetroFramework.MetroColorStyle.Red;
+            deleteButton.TabIndex = 23;
+            deleteButton.Text = "Delete";
+            deleteButton.Theme = MetroFramework.MetroThemeStyle.Dark;
+            deleteButton.UseSelectable = true;
+            deleteButton.UseStyleColors = true;
+            deleteButton.Visible = false;
+            deleteButton.Click += deleteButton_Click;
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(13, 412);
-            this.editButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(327, 39);
-            this.editButton.Style = MetroFramework.MetroColorStyle.Green;
-            this.editButton.TabIndex = 18;
-            this.editButton.Text = "Edit existing Reservation";
-            this.editButton.UseSelectable = true;
-            this.editButton.UseStyleColors = true;
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            editButton.Location = new Point(11, 386);
+            editButton.Margin = new Padding(4);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(286, 37);
+            editButton.Style = MetroFramework.MetroColorStyle.Green;
+            editButton.TabIndex = 18;
+            editButton.Text = "Edit existing Reservation";
+            editButton.UseSelectable = true;
+            editButton.UseStyleColors = true;
+            editButton.Click += editButton_Click;
             // 
             // updateButton
             // 
-            this.updateButton.Enabled = false;
-            this.updateButton.Highlight = true;
-            this.updateButton.Location = new System.Drawing.Point(13, 302);
-            this.updateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(327, 42);
-            this.updateButton.Style = MetroFramework.MetroColorStyle.Green;
-            this.updateButton.TabIndex = 19;
-            this.updateButton.Text = "Update";
-            this.updateButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.updateButton.UseSelectable = true;
-            this.updateButton.UseStyleColors = true;
-            this.updateButton.Visible = false;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            updateButton.Enabled = false;
+            updateButton.Highlight = true;
+            updateButton.Location = new Point(11, 283);
+            updateButton.Margin = new Padding(4);
+            updateButton.Name = "updateButton";
+            updateButton.Size = new Size(286, 39);
+            updateButton.Style = MetroFramework.MetroColorStyle.Green;
+            updateButton.TabIndex = 19;
+            updateButton.Text = "Update";
+            updateButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            updateButton.UseSelectable = true;
+            updateButton.UseStyleColors = true;
+            updateButton.Visible = false;
+            updateButton.Click += updateButton_Click;
             // 
             // middlePanel
             // 
-            this.middlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.middlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.middlePanel.Controls.Add(this.smsCheckBox);
-            this.middlePanel.Controls.Add(this.foodSupplyCheckBox);
-            this.middlePanel.Controls.Add(this.checkinCheckBox);
-            this.middlePanel.Controls.Add(this.foodMenuButton);
-            this.middlePanel.Controls.Add(this.qtGuestComboBox);
-            this.middlePanel.Controls.Add(this.finalizeButton);
-            this.middlePanel.Controls.Add(this.metroLabel12);
-            this.middlePanel.Controls.Add(this.submitButton);
-            this.middlePanel.Controls.Add(this.depDatePicker);
-            this.middlePanel.Controls.Add(this.roomNComboBox);
-            this.middlePanel.Controls.Add(this.floorComboBox);
-            this.middlePanel.Controls.Add(this.entryDatePicker);
-            this.middlePanel.Controls.Add(this.entryLabel);
-            this.middlePanel.Controls.Add(this.roomTypeComboBox);
-            this.middlePanel.Controls.Add(this.choiceLabel);
-            this.middlePanel.HorizontalScrollbarBarColor = true;
-            this.middlePanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.middlePanel.HorizontalScrollbarSize = 12;
-            this.middlePanel.Location = new System.Drawing.Point(473, 17);
-            this.middlePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.middlePanel.Name = "middlePanel";
-            this.middlePanel.Size = new System.Drawing.Size(460, 518);
-            this.middlePanel.TabIndex = 16;
-            this.middlePanel.UseCustomBackColor = true;
-            this.middlePanel.UseCustomForeColor = true;
-            this.middlePanel.UseStyleColors = true;
-            this.middlePanel.VerticalScrollbarBarColor = true;
-            this.middlePanel.VerticalScrollbarHighlightOnWheel = false;
-            this.middlePanel.VerticalScrollbarSize = 13;
+            middlePanel.BackColor = Color.FromArgb(225, 225, 225);
+            middlePanel.BackgroundImageLayout = ImageLayout.None;
+            middlePanel.Controls.Add(smsCheckBox);
+            middlePanel.Controls.Add(foodSupplyCheckBox);
+            middlePanel.Controls.Add(checkinCheckBox);
+            middlePanel.Controls.Add(foodMenuButton);
+            middlePanel.Controls.Add(qtGuestComboBox);
+            middlePanel.Controls.Add(finalizeButton);
+            middlePanel.Controls.Add(metroLabel12);
+            middlePanel.Controls.Add(submitButton);
+            middlePanel.Controls.Add(depDatePicker);
+            middlePanel.Controls.Add(roomNComboBox);
+            middlePanel.Controls.Add(floorComboBox);
+            middlePanel.Controls.Add(entryDatePicker);
+            middlePanel.Controls.Add(entryLabel);
+            middlePanel.Controls.Add(roomTypeComboBox);
+            middlePanel.Controls.Add(choiceLabel);
+            middlePanel.HorizontalScrollbarBarColor = true;
+            middlePanel.HorizontalScrollbarHighlightOnWheel = false;
+            middlePanel.HorizontalScrollbarSize = 11;
+            middlePanel.Location = new Point(414, 16);
+            middlePanel.Margin = new Padding(4);
+            middlePanel.Name = "middlePanel";
+            middlePanel.Size = new Size(402, 486);
+            middlePanel.TabIndex = 16;
+            middlePanel.UseCustomBackColor = true;
+            middlePanel.UseCustomForeColor = true;
+            middlePanel.UseStyleColors = true;
+            middlePanel.VerticalScrollbarBarColor = true;
+            middlePanel.VerticalScrollbarHighlightOnWheel = false;
+            middlePanel.VerticalScrollbarSize = 11;
             // 
             // smsCheckBox
             // 
-            this.smsCheckBox.AutoSize = true;
-            this.smsCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.smsCheckBox.Location = new System.Drawing.Point(140, 358);
-            this.smsCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.smsCheckBox.Name = "smsCheckBox";
-            this.smsCheckBox.Size = new System.Drawing.Size(86, 17);
-            this.smsCheckBox.Style = MetroFramework.MetroColorStyle.Green;
-            this.smsCheckBox.TabIndex = 35;
-            this.smsCheckBox.Text = "Send sms?";
-            this.smsCheckBox.UseCustomBackColor = true;
-            this.smsCheckBox.UseSelectable = true;
+            smsCheckBox.AutoSize = true;
+            smsCheckBox.BackColor = Color.Transparent;
+            smsCheckBox.Location = new Point(122, 336);
+            smsCheckBox.Margin = new Padding(4);
+            smsCheckBox.Name = "smsCheckBox";
+            smsCheckBox.Size = new Size(78, 15);
+            smsCheckBox.Style = MetroFramework.MetroColorStyle.Green;
+            smsCheckBox.TabIndex = 35;
+            smsCheckBox.Text = "Send sms?";
+            smsCheckBox.UseCustomBackColor = true;
+            smsCheckBox.UseSelectable = true;
+            smsCheckBox.UseVisualStyleBackColor = false;
             // 
             // foodSupplyCheckBox
             // 
-            this.foodSupplyCheckBox.AutoSize = true;
-            this.foodSupplyCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.foodSupplyCheckBox.Location = new System.Drawing.Point(259, 357);
-            this.foodSupplyCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.foodSupplyCheckBox.Name = "foodSupplyCheckBox";
-            this.foodSupplyCheckBox.Size = new System.Drawing.Size(146, 17);
-            this.foodSupplyCheckBox.Style = MetroFramework.MetroColorStyle.Green;
-            this.foodSupplyCheckBox.TabIndex = 34;
-            this.foodSupplyCheckBox.Text = "Food/Supply status ?";
-            this.foodSupplyCheckBox.UseCustomBackColor = true;
-            this.foodSupplyCheckBox.UseSelectable = true;
-            this.foodSupplyCheckBox.CheckedChanged += new System.EventHandler(this.foodSupplyCheckBox_CheckedChanged);
+            foodSupplyCheckBox.AutoSize = true;
+            foodSupplyCheckBox.BackColor = Color.Transparent;
+            foodSupplyCheckBox.Location = new Point(227, 335);
+            foodSupplyCheckBox.Margin = new Padding(4);
+            foodSupplyCheckBox.Name = "foodSupplyCheckBox";
+            foodSupplyCheckBox.Size = new Size(133, 15);
+            foodSupplyCheckBox.Style = MetroFramework.MetroColorStyle.Green;
+            foodSupplyCheckBox.TabIndex = 34;
+            foodSupplyCheckBox.Text = "Food/Supply status ?";
+            foodSupplyCheckBox.UseCustomBackColor = true;
+            foodSupplyCheckBox.UseSelectable = true;
+            foodSupplyCheckBox.UseVisualStyleBackColor = false;
+            foodSupplyCheckBox.CheckedChanged += foodSupplyCheckBox_CheckedChanged;
             // 
             // checkinCheckBox
             // 
-            this.checkinCheckBox.AutoSize = true;
-            this.checkinCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.checkinCheckBox.Location = new System.Drawing.Point(21, 358);
-            this.checkinCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.checkinCheckBox.Name = "checkinCheckBox";
-            this.checkinCheckBox.Size = new System.Drawing.Size(82, 17);
-            this.checkinCheckBox.Style = MetroFramework.MetroColorStyle.Green;
-            this.checkinCheckBox.TabIndex = 33;
-            this.checkinCheckBox.Text = "Check in ?";
-            this.checkinCheckBox.UseCustomBackColor = true;
-            this.checkinCheckBox.UseSelectable = true;
-            this.checkinCheckBox.CheckedChanged += new System.EventHandler(this.checkinCheckBox_CheckedChanged);
+            checkinCheckBox.AutoSize = true;
+            checkinCheckBox.BackColor = Color.Transparent;
+            checkinCheckBox.Location = new Point(18, 336);
+            checkinCheckBox.Margin = new Padding(4);
+            checkinCheckBox.Name = "checkinCheckBox";
+            checkinCheckBox.Size = new Size(77, 15);
+            checkinCheckBox.Style = MetroFramework.MetroColorStyle.Green;
+            checkinCheckBox.TabIndex = 33;
+            checkinCheckBox.Text = "Check in ?";
+            checkinCheckBox.UseCustomBackColor = true;
+            checkinCheckBox.UseSelectable = true;
+            checkinCheckBox.UseVisualStyleBackColor = false;
+            checkinCheckBox.CheckedChanged += checkinCheckBox_CheckedChanged;
             // 
             // foodMenuButton
             // 
-            this.foodMenuButton.Location = new System.Drawing.Point(21, 299);
-            this.foodMenuButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.foodMenuButton.Name = "foodMenuButton";
-            this.foodMenuButton.Size = new System.Drawing.Size(419, 42);
-            this.foodMenuButton.Style = MetroFramework.MetroColorStyle.Green;
-            this.foodMenuButton.TabIndex = 23;
-            this.foodMenuButton.Text = "Food and menu";
-            this.foodMenuButton.UseSelectable = true;
-            this.foodMenuButton.UseStyleColors = true;
-            this.foodMenuButton.Click += new System.EventHandler(this.foodMenuButton_Click);
+            foodMenuButton.Location = new Point(18, 280);
+            foodMenuButton.Margin = new Padding(4);
+            foodMenuButton.Name = "foodMenuButton";
+            foodMenuButton.Size = new Size(367, 39);
+            foodMenuButton.Style = MetroFramework.MetroColorStyle.Green;
+            foodMenuButton.TabIndex = 23;
+            foodMenuButton.Text = "Food and menu";
+            foodMenuButton.UseSelectable = true;
+            foodMenuButton.UseStyleColors = true;
+            foodMenuButton.Click += foodMenuButton_Click;
             // 
             // qtGuestComboBox
             // 
-            this.qtGuestComboBox.FormattingEnabled = true;
-            this.qtGuestComboBox.ItemHeight = 24;
-            this.qtGuestComboBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.qtGuestComboBox.Location = new System.Drawing.Point(21, 37);
-            this.qtGuestComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.qtGuestComboBox.Name = "qtGuestComboBox";
-            this.qtGuestComboBox.PromptText = "# of guests";
-            this.qtGuestComboBox.Size = new System.Drawing.Size(200, 30);
-            this.qtGuestComboBox.TabIndex = 25;
-            this.qtGuestComboBox.UseSelectable = true;
+            qtGuestComboBox.FormattingEnabled = true;
+            qtGuestComboBox.ItemHeight = 23;
+            qtGuestComboBox.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6" });
+            qtGuestComboBox.Location = new Point(18, 35);
+            qtGuestComboBox.Margin = new Padding(4);
+            qtGuestComboBox.Name = "qtGuestComboBox";
+            qtGuestComboBox.PromptText = "# of guests";
+            qtGuestComboBox.Size = new Size(176, 29);
+            qtGuestComboBox.TabIndex = 25;
+            qtGuestComboBox.UseSelectable = true;
             // 
             // finalizeButton
             // 
-            this.finalizeButton.Location = new System.Drawing.Point(21, 415);
-            this.finalizeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.finalizeButton.Name = "finalizeButton";
-            this.finalizeButton.Size = new System.Drawing.Size(419, 38);
-            this.finalizeButton.Style = MetroFramework.MetroColorStyle.Green;
-            this.finalizeButton.TabIndex = 22;
-            this.finalizeButton.Text = "Finalize bill";
-            this.finalizeButton.UseSelectable = true;
-            this.finalizeButton.UseStyleColors = true;
-            this.finalizeButton.Click += new System.EventHandler(this.finalizeButton_Click);
+            finalizeButton.Location = new Point(18, 389);
+            finalizeButton.Margin = new Padding(4);
+            finalizeButton.Name = "finalizeButton";
+            finalizeButton.Size = new Size(367, 36);
+            finalizeButton.Style = MetroFramework.MetroColorStyle.Green;
+            finalizeButton.TabIndex = 22;
+            finalizeButton.Text = "Finalize bill";
+            finalizeButton.UseSelectable = true;
+            finalizeButton.UseStyleColors = true;
+            finalizeButton.Click += finalizeButton_Click;
             // 
             // metroLabel12
             // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel12.Location = new System.Drawing.Point(21, 208);
-            this.metroLabel12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(120, 20);
-            this.metroLabel12.TabIndex = 32;
-            this.metroLabel12.Text = "Deperture [date]";
-            this.metroLabel12.UseCustomBackColor = true;
-            this.metroLabel12.UseCustomForeColor = true;
+            metroLabel12.AutoSize = true;
+            metroLabel12.BackColor = Color.Transparent;
+            metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            metroLabel12.Location = new Point(18, 195);
+            metroLabel12.Margin = new Padding(4, 0, 4, 0);
+            metroLabel12.Name = "metroLabel12";
+            metroLabel12.Size = new Size(110, 19);
+            metroLabel12.TabIndex = 32;
+            metroLabel12.Text = "Deperture [date]";
+            metroLabel12.UseCustomBackColor = true;
+            metroLabel12.UseCustomForeColor = true;
             // 
             // submitButton
             // 
-            this.submitButton.Highlight = true;
-            this.submitButton.Location = new System.Drawing.Point(21, 458);
-            this.submitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(419, 44);
-            this.submitButton.Style = MetroFramework.MetroColorStyle.Green;
-            this.submitButton.TabIndex = 17;
-            this.submitButton.Text = "Submit";
-            this.submitButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.submitButton.UseSelectable = true;
-            this.submitButton.UseStyleColors = true;
-            this.submitButton.Visible = false;
-            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
+            submitButton.Highlight = true;
+            submitButton.Location = new Point(18, 429);
+            submitButton.Margin = new Padding(4);
+            submitButton.Name = "submitButton";
+            submitButton.Size = new Size(367, 41);
+            submitButton.Style = MetroFramework.MetroColorStyle.Green;
+            submitButton.TabIndex = 17;
+            submitButton.Text = "Submit";
+            submitButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            submitButton.UseSelectable = true;
+            submitButton.UseStyleColors = true;
+            submitButton.Visible = false;
+            submitButton.Click += submitButton_Click;
             // 
             // depDatePicker
             // 
-            this.depDatePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depDatePicker.CustomFormat = "MM-dd-yyyy";
-            this.depDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.depDatePicker.Location = new System.Drawing.Point(21, 235);
-            this.depDatePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.depDatePicker.MaxDate = new System.DateTime(2027, 4, 27, 23, 59, 0, 0);
-            this.depDatePicker.MinDate = new System.DateTime(2014, 4, 27, 0, 0, 0, 0);
-            this.depDatePicker.Name = "depDatePicker";
-            this.depDatePicker.Size = new System.Drawing.Size(420, 30);
-            this.depDatePicker.TabIndex = 31;
-            this.depDatePicker.Value = new System.DateTime(2014, 4, 27, 0, 0, 0, 0);
+            depDatePicker.CalendarFont = new Font("Microsoft Sans Serif", 8F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            depDatePicker.CustomFormat = "MM-dd-yyyy";
+            depDatePicker.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            depDatePicker.Format = DateTimePickerFormat.Custom;
+            depDatePicker.Location = new Point(18, 220);
+            depDatePicker.Margin = new Padding(4);
+            depDatePicker.MaxDate = new DateTime(2027, 4, 27, 23, 59, 0, 0);
+            depDatePicker.MinDate = new DateTime(2014, 4, 27, 0, 0, 0, 0);
+            depDatePicker.Name = "depDatePicker";
+            depDatePicker.Size = new Size(368, 26);
+            depDatePicker.TabIndex = 31;
+            depDatePicker.Value = new DateTime(2014, 4, 27, 0, 0, 0, 0);
             // 
             // roomNComboBox
             // 
-            this.roomNComboBox.FormattingEnabled = true;
-            this.roomNComboBox.ItemHeight = 24;
-            this.roomNComboBox.Items.AddRange(new object[] {
-            "101",
-            "102",
-            "103",
-            "104",
-            "105",
-            "106",
-            "107",
-            "108",
-            "109",
-            "110",
-            "201",
-            "202",
-            "203",
-            "204",
-            "205",
-            "206",
-            "207",
-            "208",
-            "209",
-            "210",
-            "301",
-            "302",
-            "303",
-            "304",
-            "305",
-            "306",
-            "307",
-            "308",
-            "309",
-            "310",
-            "401",
-            "402",
-            "403",
-            "404",
-            "405",
-            "406",
-            "407",
-            "408",
-            "409",
-            "410",
-            "501",
-            "502",
-            "503",
-            "504",
-            "505",
-            "506",
-            "507",
-            "508",
-            "509",
-            "510"});
-            this.roomNComboBox.Location = new System.Drawing.Point(231, 102);
-            this.roomNComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.roomNComboBox.Name = "roomNComboBox";
-            this.roomNComboBox.PromptText = "#";
-            this.roomNComboBox.Size = new System.Drawing.Size(211, 30);
-            this.roomNComboBox.TabIndex = 24;
-            this.roomNComboBox.UseSelectable = true;
+            roomNComboBox.FormattingEnabled = true;
+            roomNComboBox.ItemHeight = 23;
+            roomNComboBox.Items.AddRange(new object[] { "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "501", "502", "503", "504", "505", "506", "507", "508", "509", "510" });
+            roomNComboBox.Location = new Point(202, 96);
+            roomNComboBox.Margin = new Padding(4);
+            roomNComboBox.Name = "roomNComboBox";
+            roomNComboBox.PromptText = "#";
+            roomNComboBox.Size = new Size(185, 29);
+            roomNComboBox.TabIndex = 24;
+            roomNComboBox.UseSelectable = true;
             // 
             // floorComboBox
             // 
-            this.floorComboBox.FormattingEnabled = true;
-            this.floorComboBox.ItemHeight = 24;
-            this.floorComboBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.floorComboBox.Location = new System.Drawing.Point(21, 102);
-            this.floorComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.floorComboBox.Name = "floorComboBox";
-            this.floorComboBox.PromptText = "Floor";
-            this.floorComboBox.Size = new System.Drawing.Size(200, 30);
-            this.floorComboBox.TabIndex = 23;
-            this.floorComboBox.UseSelectable = true;
+            floorComboBox.FormattingEnabled = true;
+            floorComboBox.ItemHeight = 23;
+            floorComboBox.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
+            floorComboBox.Location = new Point(18, 96);
+            floorComboBox.Margin = new Padding(4);
+            floorComboBox.Name = "floorComboBox";
+            floorComboBox.PromptText = "Floor";
+            floorComboBox.Size = new Size(176, 29);
+            floorComboBox.TabIndex = 23;
+            floorComboBox.UseSelectable = true;
             // 
             // entryDatePicker
             // 
-            this.entryDatePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entryDatePicker.CustomFormat = "MM-dd-yyyy";
-            this.entryDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entryDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.entryDatePicker.Location = new System.Drawing.Point(21, 172);
-            this.entryDatePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.entryDatePicker.MaxDate = new System.DateTime(2027, 4, 27, 23, 59, 0, 0);
-            this.entryDatePicker.MinDate = new System.DateTime(2014, 5, 11, 0, 0, 0, 0);
-            this.entryDatePicker.Name = "entryDatePicker";
-            this.entryDatePicker.Size = new System.Drawing.Size(417, 30);
-            this.entryDatePicker.TabIndex = 26;
-            this.entryDatePicker.Value = new System.DateTime(2014, 5, 11, 0, 0, 0, 0);
+            entryDatePicker.CalendarFont = new Font("Microsoft Sans Serif", 8F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            entryDatePicker.CustomFormat = "MM-dd-yyyy";
+            entryDatePicker.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            entryDatePicker.Format = DateTimePickerFormat.Custom;
+            entryDatePicker.Location = new Point(18, 161);
+            entryDatePicker.Margin = new Padding(4);
+            entryDatePicker.MaxDate = new DateTime(2027, 4, 27, 23, 59, 0, 0);
+            entryDatePicker.MinDate = new DateTime(2014, 5, 11, 0, 0, 0, 0);
+            entryDatePicker.Name = "entryDatePicker";
+            entryDatePicker.Size = new Size(365, 26);
+            entryDatePicker.TabIndex = 26;
+            entryDatePicker.Value = new DateTime(2014, 5, 11, 0, 0, 0, 0);
             // 
             // entryLabel
             // 
-            this.entryLabel.AutoSize = true;
-            this.entryLabel.BackColor = System.Drawing.Color.Transparent;
-            this.entryLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.entryLabel.Location = new System.Drawing.Point(21, 145);
-            this.entryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.entryLabel.Name = "entryLabel";
-            this.entryLabel.Size = new System.Drawing.Size(86, 20);
-            this.entryLabel.TabIndex = 30;
-            this.entryLabel.Text = "Entry [date]";
-            this.entryLabel.UseCustomBackColor = true;
-            this.entryLabel.UseCustomForeColor = true;
+            entryLabel.AutoSize = true;
+            entryLabel.BackColor = Color.Transparent;
+            entryLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            entryLabel.Location = new Point(18, 136);
+            entryLabel.Margin = new Padding(4, 0, 4, 0);
+            entryLabel.Name = "entryLabel";
+            entryLabel.Size = new Size(80, 19);
+            entryLabel.TabIndex = 30;
+            entryLabel.Text = "Entry [date]";
+            entryLabel.UseCustomBackColor = true;
+            entryLabel.UseCustomForeColor = true;
             // 
             // roomTypeComboBox
             // 
-            this.roomTypeComboBox.FormattingEnabled = true;
-            this.roomTypeComboBox.ItemHeight = 24;
-            this.roomTypeComboBox.Items.AddRange(new object[] {
-            "Single",
-            "Double",
-            "Twin",
-            "Duplex",
-            "Suite"});
-            this.roomTypeComboBox.Location = new System.Drawing.Point(231, 36);
-            this.roomTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.roomTypeComboBox.Name = "roomTypeComboBox";
-            this.roomTypeComboBox.PromptText = "Room type";
-            this.roomTypeComboBox.Size = new System.Drawing.Size(211, 30);
-            this.roomTypeComboBox.TabIndex = 22;
-            this.roomTypeComboBox.UseSelectable = true;
-            this.roomTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.roomTypeComboBox_SelectedIndexChanged);
+            roomTypeComboBox.FormattingEnabled = true;
+            roomTypeComboBox.ItemHeight = 23;
+            roomTypeComboBox.Items.AddRange(new object[] { "Single", "Double", "Twin", "Duplex", "Suite" });
+            roomTypeComboBox.Location = new Point(202, 34);
+            roomTypeComboBox.Margin = new Padding(4);
+            roomTypeComboBox.Name = "roomTypeComboBox";
+            roomTypeComboBox.PromptText = "Room type";
+            roomTypeComboBox.Size = new Size(185, 29);
+            roomTypeComboBox.TabIndex = 22;
+            roomTypeComboBox.UseSelectable = true;
+            roomTypeComboBox.SelectedIndexChanged += roomTypeComboBox_SelectedIndexChanged;
             // 
             // choiceLabel
             // 
-            this.choiceLabel.AutoSize = true;
-            this.choiceLabel.BackColor = System.Drawing.Color.Transparent;
-            this.choiceLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.choiceLabel.Location = new System.Drawing.Point(21, 10);
-            this.choiceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.choiceLabel.Name = "choiceLabel";
-            this.choiceLabel.Size = new System.Drawing.Size(91, 20);
-            this.choiceLabel.TabIndex = 21;
-            this.choiceLabel.Text = "Your choices";
-            this.choiceLabel.UseCustomBackColor = true;
-            this.choiceLabel.UseCustomForeColor = true;
+            choiceLabel.AutoSize = true;
+            choiceLabel.BackColor = Color.Transparent;
+            choiceLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            choiceLabel.Location = new Point(18, 9);
+            choiceLabel.Margin = new Padding(4, 0, 4, 0);
+            choiceLabel.Name = "choiceLabel";
+            choiceLabel.Size = new Size(85, 19);
+            choiceLabel.TabIndex = 21;
+            choiceLabel.Text = "Your choices";
+            choiceLabel.UseCustomBackColor = true;
+            choiceLabel.UseCustomForeColor = true;
             // 
             // leftMPanel
             // 
-            this.leftMPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-            this.leftMPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.leftMPanel.Controls.Add(this.emailLabel);
-            this.leftMPanel.Controls.Add(this.nameLabel);
-            this.leftMPanel.Controls.Add(this.emailTextBox);
-            this.leftMPanel.Controls.Add(this.yearTextBox);
-            this.leftMPanel.Controls.Add(this.monthComboBox);
-            this.leftMPanel.Controls.Add(this.genderComboBox);
-            this.leftMPanel.Controls.Add(this.birthdayLabel);
-            this.leftMPanel.Controls.Add(this.dayComboBox);
-            this.leftMPanel.Controls.Add(this.phoneNumberLabel);
-            this.leftMPanel.Controls.Add(this.firstNameTextBox);
-            this.leftMPanel.Controls.Add(this.genderLabel);
-            this.leftMPanel.Controls.Add(this.zipComboBox);
-            this.leftMPanel.Controls.Add(this.phoneNumberTextBox);
-            this.leftMPanel.Controls.Add(this.stateComboBox);
-            this.leftMPanel.Controls.Add(this.lastNameTextBox);
-            this.leftMPanel.Controls.Add(this.cityTextBox);
-            this.leftMPanel.Controls.Add(this.metroLabel6);
-            this.leftMPanel.Controls.Add(this.aptTextBox);
-            this.leftMPanel.Controls.Add(this.addLabel);
-            this.leftMPanel.HorizontalScrollbarBarColor = true;
-            this.leftMPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.leftMPanel.HorizontalScrollbarSize = 12;
-            this.leftMPanel.Location = new System.Drawing.Point(4, 18);
-            this.leftMPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.leftMPanel.Name = "leftMPanel";
-            this.leftMPanel.Size = new System.Drawing.Size(460, 518);
-            this.leftMPanel.TabIndex = 4;
-            this.leftMPanel.UseCustomBackColor = true;
-            this.leftMPanel.UseCustomForeColor = true;
-            this.leftMPanel.UseStyleColors = true;
-            this.leftMPanel.VerticalScrollbarBarColor = true;
-            this.leftMPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.leftMPanel.VerticalScrollbarSize = 13;
+            leftMPanel.BackColor = Color.FromArgb(225, 225, 225);
+            leftMPanel.BackgroundImageLayout = ImageLayout.None;
+            leftMPanel.Controls.Add(emailLabel);
+            leftMPanel.Controls.Add(nameLabel);
+            leftMPanel.Controls.Add(emailTextBox);
+            leftMPanel.Controls.Add(yearTextBox);
+            leftMPanel.Controls.Add(monthComboBox);
+            leftMPanel.Controls.Add(genderComboBox);
+            leftMPanel.Controls.Add(birthdayLabel);
+            leftMPanel.Controls.Add(dayComboBox);
+            leftMPanel.Controls.Add(phoneNumberLabel);
+            leftMPanel.Controls.Add(firstNameTextBox);
+            leftMPanel.Controls.Add(genderLabel);
+            leftMPanel.Controls.Add(zipComboBox);
+            leftMPanel.Controls.Add(phoneNumberTextBox);
+            leftMPanel.Controls.Add(stateComboBox);
+            leftMPanel.Controls.Add(lastNameTextBox);
+            leftMPanel.Controls.Add(cityTextBox);
+            leftMPanel.Controls.Add(metroLabel6);
+            leftMPanel.Controls.Add(aptTextBox);
+            leftMPanel.Controls.Add(addLabel);
+            leftMPanel.HorizontalScrollbarBarColor = true;
+            leftMPanel.HorizontalScrollbarHighlightOnWheel = false;
+            leftMPanel.HorizontalScrollbarSize = 11;
+            leftMPanel.Location = new Point(4, 17);
+            leftMPanel.Margin = new Padding(4);
+            leftMPanel.Name = "leftMPanel";
+            leftMPanel.Size = new Size(402, 486);
+            leftMPanel.TabIndex = 4;
+            leftMPanel.UseCustomBackColor = true;
+            leftMPanel.UseCustomForeColor = true;
+            leftMPanel.UseStyleColors = true;
+            leftMPanel.VerticalScrollbarBarColor = true;
+            leftMPanel.VerticalScrollbarHighlightOnWheel = false;
+            leftMPanel.VerticalScrollbarSize = 11;
             // 
             // emailLabel
             // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.BackColor = System.Drawing.Color.Transparent;
-            this.emailLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.emailLabel.Location = new System.Drawing.Point(20, 277);
-            this.emailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(140, 20);
-            this.emailLabel.TabIndex = 15;
-            this.emailLabel.Text = "Your e-mail address";
-            this.emailLabel.UseCustomBackColor = true;
-            this.emailLabel.UseCustomForeColor = true;
+            emailLabel.AutoSize = true;
+            emailLabel.BackColor = Color.Transparent;
+            emailLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            emailLabel.Location = new Point(18, 260);
+            emailLabel.Margin = new Padding(4, 0, 4, 0);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new Size(130, 19);
+            emailLabel.TabIndex = 15;
+            emailLabel.Text = "Your e-mail address";
+            emailLabel.UseCustomBackColor = true;
+            emailLabel.UseCustomForeColor = true;
             // 
             // nameLabel
             // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.nameLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.nameLabel.Location = new System.Drawing.Point(19, 9);
-            this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(49, 20);
-            this.nameLabel.TabIndex = 4;
-            this.nameLabel.Text = "Name";
-            this.nameLabel.UseCustomBackColor = true;
-            this.nameLabel.UseCustomForeColor = true;
+            nameLabel.AutoSize = true;
+            nameLabel.BackColor = Color.Transparent;
+            nameLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            nameLabel.Location = new Point(17, 8);
+            nameLabel.Margin = new Padding(4, 0, 4, 0);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new Size(45, 19);
+            nameLabel.TabIndex = 4;
+            nameLabel.Text = "Name";
+            nameLabel.UseCustomBackColor = true;
+            nameLabel.UseCustomForeColor = true;
             // 
             // emailTextBox
             // 
-            this.emailTextBox.BackColor = System.Drawing.Color.White;
-            this.emailTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.emailTextBox.Lines = new string[0];
-            this.emailTextBox.Location = new System.Drawing.Point(20, 304);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.emailTextBox.MaxLength = 32767;
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.PasswordChar = '\0';
-            this.emailTextBox.PromptText = "first.last@example.com";
-            this.emailTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.emailTextBox.SelectedText = "";
-            this.emailTextBox.Size = new System.Drawing.Size(421, 36);
-            this.emailTextBox.Style = MetroFramework.MetroColorStyle.White;
-            this.emailTextBox.TabIndex = 14;
-            this.emailTextBox.UseCustomBackColor = true;
-            this.emailTextBox.UseSelectable = true;
+            emailTextBox.BackColor = Color.White;
+            emailTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            emailTextBox.Location = new Point(18, 285);
+            emailTextBox.Margin = new Padding(4);
+            emailTextBox.MaxLength = 32767;
+            emailTextBox.Name = "emailTextBox";
+            emailTextBox.PasswordChar = '\0';
+            emailTextBox.PromptText = "first.last@example.com";
+            emailTextBox.ScrollBars = ScrollBars.None;
+            emailTextBox.SelectedText = "";
+            emailTextBox.Size = new Size(368, 34);
+            emailTextBox.Style = MetroFramework.MetroColorStyle.White;
+            emailTextBox.TabIndex = 14;
+            emailTextBox.UseCustomBackColor = true;
+            emailTextBox.UseSelectable = true;
             // 
             // yearTextBox
             // 
-            this.yearTextBox.BackColor = System.Drawing.Color.White;
-            this.yearTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.yearTextBox.Lines = new string[0];
-            this.yearTextBox.Location = new System.Drawing.Point(307, 103);
-            this.yearTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.yearTextBox.MaxLength = 32767;
-            this.yearTextBox.Name = "yearTextBox";
-            this.yearTextBox.PasswordChar = '\0';
-            this.yearTextBox.PromptText = "Year";
-            this.yearTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.yearTextBox.SelectedText = "";
-            this.yearTextBox.Size = new System.Drawing.Size(135, 36);
-            this.yearTextBox.Style = MetroFramework.MetroColorStyle.White;
-            this.yearTextBox.TabIndex = 9;
-            this.yearTextBox.UseCustomBackColor = true;
-            this.yearTextBox.UseSelectable = true;
+            yearTextBox.BackColor = Color.White;
+            yearTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            yearTextBox.Location = new Point(269, 97);
+            yearTextBox.Margin = new Padding(4);
+            yearTextBox.MaxLength = 32767;
+            yearTextBox.Name = "yearTextBox";
+            yearTextBox.PasswordChar = '\0';
+            yearTextBox.PromptText = "Year";
+            yearTextBox.ScrollBars = ScrollBars.None;
+            yearTextBox.SelectedText = "";
+            yearTextBox.Size = new Size(118, 34);
+            yearTextBox.Style = MetroFramework.MetroColorStyle.White;
+            yearTextBox.TabIndex = 9;
+            yearTextBox.UseCustomBackColor = true;
+            yearTextBox.UseSelectable = true;
             // 
             // monthComboBox
             // 
-            this.monthComboBox.FormattingEnabled = true;
-            this.monthComboBox.ItemHeight = 24;
-            this.monthComboBox.Items.AddRange(new object[] {
-            "January ",
-            "February ",
-            "March ",
-            "April ",
-            "May ",
-            "June ",
-            "July ",
-            "August ",
-            "September ",
-            "October ",
-            "November ",
-            "December"});
-            this.monthComboBox.Location = new System.Drawing.Point(20, 103);
-            this.monthComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.monthComboBox.Name = "monthComboBox";
-            this.monthComboBox.PromptText = "Month";
-            this.monthComboBox.Size = new System.Drawing.Size(159, 30);
-            this.monthComboBox.TabIndex = 6;
-            this.monthComboBox.UseSelectable = true;
+            monthComboBox.FormattingEnabled = true;
+            monthComboBox.ItemHeight = 23;
+            monthComboBox.Items.AddRange(new object[] { "January ", "February ", "March ", "April ", "May ", "June ", "July ", "August ", "September ", "October ", "November ", "December" });
+            monthComboBox.Location = new Point(18, 97);
+            monthComboBox.Margin = new Padding(4);
+            monthComboBox.Name = "monthComboBox";
+            monthComboBox.PromptText = "Month";
+            monthComboBox.Size = new Size(140, 29);
+            monthComboBox.TabIndex = 6;
+            monthComboBox.UseSelectable = true;
             // 
             // genderComboBox
             // 
-            this.genderComboBox.FormattingEnabled = true;
-            this.genderComboBox.ItemHeight = 24;
-            this.genderComboBox.Items.AddRange(new object[] {
-            "Female",
-            "Male",
-            "Other"});
-            this.genderComboBox.Location = new System.Drawing.Point(20, 172);
-            this.genderComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.PromptText = "........";
-            this.genderComboBox.Size = new System.Drawing.Size(419, 30);
-            this.genderComboBox.TabIndex = 11;
-            this.genderComboBox.UseSelectable = true;
+            genderComboBox.FormattingEnabled = true;
+            genderComboBox.ItemHeight = 23;
+            genderComboBox.Items.AddRange(new object[] { "Female", "Male", "Other" });
+            genderComboBox.Location = new Point(18, 161);
+            genderComboBox.Margin = new Padding(4);
+            genderComboBox.Name = "genderComboBox";
+            genderComboBox.PromptText = "........";
+            genderComboBox.Size = new Size(367, 29);
+            genderComboBox.TabIndex = 11;
+            genderComboBox.UseSelectable = true;
             // 
             // birthdayLabel
             // 
-            this.birthdayLabel.AutoSize = true;
-            this.birthdayLabel.BackColor = System.Drawing.Color.Transparent;
-            this.birthdayLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.birthdayLabel.Location = new System.Drawing.Point(16, 78);
-            this.birthdayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.birthdayLabel.Name = "birthdayLabel";
-            this.birthdayLabel.Size = new System.Drawing.Size(64, 20);
-            this.birthdayLabel.TabIndex = 5;
-            this.birthdayLabel.Text = "Birthday";
-            this.birthdayLabel.UseCustomBackColor = true;
-            this.birthdayLabel.UseCustomForeColor = true;
+            birthdayLabel.AutoSize = true;
+            birthdayLabel.BackColor = Color.Transparent;
+            birthdayLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            birthdayLabel.Location = new Point(14, 73);
+            birthdayLabel.Margin = new Padding(4, 0, 4, 0);
+            birthdayLabel.Name = "birthdayLabel";
+            birthdayLabel.Size = new Size(60, 19);
+            birthdayLabel.TabIndex = 5;
+            birthdayLabel.Text = "Birthday";
+            birthdayLabel.UseCustomBackColor = true;
+            birthdayLabel.UseCustomForeColor = true;
             // 
             // dayComboBox
             // 
-            this.dayComboBox.FormattingEnabled = true;
-            this.dayComboBox.ItemHeight = 24;
-            this.dayComboBox.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31"});
-            this.dayComboBox.Location = new System.Drawing.Point(188, 103);
-            this.dayComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dayComboBox.Name = "dayComboBox";
-            this.dayComboBox.PromptText = "Day";
-            this.dayComboBox.Size = new System.Drawing.Size(109, 30);
-            this.dayComboBox.TabIndex = 8;
-            this.dayComboBox.UseSelectable = true;
+            dayComboBox.FormattingEnabled = true;
+            dayComboBox.ItemHeight = 23;
+            dayComboBox.Items.AddRange(new object[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" });
+            dayComboBox.Location = new Point(164, 97);
+            dayComboBox.Margin = new Padding(4);
+            dayComboBox.Name = "dayComboBox";
+            dayComboBox.PromptText = "Day";
+            dayComboBox.Size = new Size(96, 29);
+            dayComboBox.TabIndex = 8;
+            dayComboBox.UseSelectable = true;
             // 
             // phoneNumberLabel
             // 
-            this.phoneNumberLabel.AutoSize = true;
-            this.phoneNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            this.phoneNumberLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.phoneNumberLabel.Location = new System.Drawing.Point(19, 210);
-            this.phoneNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.phoneNumberLabel.Name = "phoneNumberLabel";
-            this.phoneNumberLabel.Size = new System.Drawing.Size(105, 20);
-            this.phoneNumberLabel.TabIndex = 12;
-            this.phoneNumberLabel.Text = "Phone number";
-            this.phoneNumberLabel.UseCustomBackColor = true;
-            this.phoneNumberLabel.UseCustomForeColor = true;
+            phoneNumberLabel.AutoSize = true;
+            phoneNumberLabel.BackColor = Color.Transparent;
+            phoneNumberLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            phoneNumberLabel.Location = new Point(17, 197);
+            phoneNumberLabel.Margin = new Padding(4, 0, 4, 0);
+            phoneNumberLabel.Name = "phoneNumberLabel";
+            phoneNumberLabel.Size = new Size(100, 19);
+            phoneNumberLabel.TabIndex = 12;
+            phoneNumberLabel.Text = "Phone number";
+            phoneNumberLabel.UseCustomBackColor = true;
+            phoneNumberLabel.UseCustomForeColor = true;
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.BackColor = System.Drawing.Color.White;
-            this.firstNameTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.firstNameTextBox.Lines = new string[0];
-            this.firstNameTextBox.Location = new System.Drawing.Point(20, 33);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.firstNameTextBox.MaxLength = 32767;
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.PasswordChar = '\0';
-            this.firstNameTextBox.PromptText = "First";
-            this.firstNameTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.firstNameTextBox.SelectedText = "";
-            this.firstNameTextBox.Size = new System.Drawing.Size(207, 36);
-            this.firstNameTextBox.Style = MetroFramework.MetroColorStyle.White;
-            this.firstNameTextBox.TabIndex = 2;
-            this.firstNameTextBox.UseCustomBackColor = true;
-            this.firstNameTextBox.UseSelectable = true;
+            firstNameTextBox.BackColor = Color.White;
+            firstNameTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            firstNameTextBox.Location = new Point(18, 31);
+            firstNameTextBox.Margin = new Padding(4);
+            firstNameTextBox.MaxLength = 32767;
+            firstNameTextBox.Name = "firstNameTextBox";
+            firstNameTextBox.PasswordChar = '\0';
+            firstNameTextBox.PromptText = "First";
+            firstNameTextBox.ScrollBars = ScrollBars.None;
+            firstNameTextBox.SelectedText = "";
+            firstNameTextBox.Size = new Size(181, 34);
+            firstNameTextBox.Style = MetroFramework.MetroColorStyle.White;
+            firstNameTextBox.TabIndex = 2;
+            firstNameTextBox.UseCustomBackColor = true;
+            firstNameTextBox.UseSelectable = true;
             // 
             // genderLabel
             // 
-            this.genderLabel.AutoSize = true;
-            this.genderLabel.BackColor = System.Drawing.Color.Transparent;
-            this.genderLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.genderLabel.Location = new System.Drawing.Point(17, 145);
-            this.genderLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.genderLabel.Name = "genderLabel";
-            this.genderLabel.Size = new System.Drawing.Size(57, 20);
-            this.genderLabel.TabIndex = 10;
-            this.genderLabel.Text = "Gender";
-            this.genderLabel.UseCustomBackColor = true;
-            this.genderLabel.UseCustomForeColor = true;
+            genderLabel.AutoSize = true;
+            genderLabel.BackColor = Color.Transparent;
+            genderLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            genderLabel.Location = new Point(15, 136);
+            genderLabel.Margin = new Padding(4, 0, 4, 0);
+            genderLabel.Name = "genderLabel";
+            genderLabel.Size = new Size(54, 19);
+            genderLabel.TabIndex = 10;
+            genderLabel.Text = "Gender";
+            genderLabel.UseCustomBackColor = true;
+            genderLabel.UseCustomForeColor = true;
             // 
             // zipComboBox
             // 
-            this.zipComboBox.BackColor = System.Drawing.Color.White;
-            this.zipComboBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.zipComboBox.Lines = new string[0];
-            this.zipComboBox.Location = new System.Drawing.Point(229, 465);
-            this.zipComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.zipComboBox.MaxLength = 32767;
-            this.zipComboBox.Name = "zipComboBox";
-            this.zipComboBox.PasswordChar = '\0';
-            this.zipComboBox.PromptText = "Zip code";
-            this.zipComboBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.zipComboBox.SelectedText = "";
-            this.zipComboBox.Size = new System.Drawing.Size(212, 36);
-            this.zipComboBox.Style = MetroFramework.MetroColorStyle.White;
-            this.zipComboBox.TabIndex = 20;
-            this.zipComboBox.UseCustomBackColor = true;
-            this.zipComboBox.UseSelectable = true;
+            zipComboBox.BackColor = Color.White;
+            zipComboBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            zipComboBox.Location = new Point(200, 436);
+            zipComboBox.Margin = new Padding(4);
+            zipComboBox.MaxLength = 32767;
+            zipComboBox.Name = "zipComboBox";
+            zipComboBox.PasswordChar = '\0';
+            zipComboBox.PromptText = "Zip code";
+            zipComboBox.ScrollBars = ScrollBars.None;
+            zipComboBox.SelectedText = "";
+            zipComboBox.Size = new Size(186, 34);
+            zipComboBox.Style = MetroFramework.MetroColorStyle.White;
+            zipComboBox.TabIndex = 20;
+            zipComboBox.UseCustomBackColor = true;
+            zipComboBox.UseSelectable = true;
             // 
             // phoneNumberTextBox
             // 
-            this.phoneNumberTextBox.BackColor = System.Drawing.Color.White;
-            this.phoneNumberTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.phoneNumberTextBox.Lines = new string[0];
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(19, 238);
-            this.phoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.phoneNumberTextBox.MaxLength = 32767;
-            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-            this.phoneNumberTextBox.PasswordChar = '\0';
-            this.phoneNumberTextBox.PromptText = "(999) 999-999";
-            this.phoneNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.phoneNumberTextBox.SelectedText = "";
-            this.phoneNumberTextBox.Size = new System.Drawing.Size(421, 36);
-            this.phoneNumberTextBox.Style = MetroFramework.MetroColorStyle.White;
-            this.phoneNumberTextBox.TabIndex = 13;
-            this.phoneNumberTextBox.UseCustomBackColor = true;
-            this.phoneNumberTextBox.UseSelectable = true;
-            this.phoneNumberTextBox.Leave += new System.EventHandler(this.phoneNumberTextBox_Leave);
+            phoneNumberTextBox.BackColor = Color.White;
+            phoneNumberTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            phoneNumberTextBox.Location = new Point(17, 223);
+            phoneNumberTextBox.Margin = new Padding(4);
+            phoneNumberTextBox.MaxLength = 32767;
+            phoneNumberTextBox.Name = "phoneNumberTextBox";
+            phoneNumberTextBox.PasswordChar = '\0';
+            phoneNumberTextBox.PromptText = "(999) 999-999";
+            phoneNumberTextBox.ScrollBars = ScrollBars.None;
+            phoneNumberTextBox.SelectedText = "";
+            phoneNumberTextBox.Size = new Size(368, 34);
+            phoneNumberTextBox.Style = MetroFramework.MetroColorStyle.White;
+            phoneNumberTextBox.TabIndex = 13;
+            phoneNumberTextBox.UseCustomBackColor = true;
+            phoneNumberTextBox.UseSelectable = true;
+            phoneNumberTextBox.Leave += phoneNumberTextBox_Leave;
             // 
             // stateComboBox
             // 
-            this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.ItemHeight = 24;
-            this.stateComboBox.Items.AddRange(new object[] {
-            "Alabama ",
-            "Alaska ",
-            "Arizona ",
-            "Arkansas ",
-            "California ",
-            "Colorado ",
-            "Connecticut ",
-            "Delaware ",
-            "Florida ",
-            "Georgia ",
-            "Hawaii ",
-            "Idaho ",
-            "Illinois Indiana ",
-            "Iowa ",
-            "Kansas ",
-            "Kentucky ",
-            "Louisiana ",
-            "Maine ",
-            "Maryland ",
-            "Massachusetts ",
-            "Michigan ",
-            "Minnesota ",
-            "Mississippi ",
-            "Missouri ",
-            "Montana Nebraska ",
-            "Nevada ",
-            "New Hampshire ",
-            "New Jersey ",
-            "New Mexico ",
-            "New York ",
-            "North Carolina ",
-            "North Dakota ",
-            "Ohio ",
-            "Oklahoma ",
-            "Oregon ",
-            "Pennsylvania Rhode Island ",
-            "South Carolina ",
-            "South Dakota ",
-            "Tennessee ",
-            "Texas ",
-            "Utah ",
-            "Vermont ",
-            "Virginia ",
-            "Washington ",
-            "West Virginia ",
-            "Wisconsin ",
-            "Wyoming"});
-            this.stateComboBox.Location = new System.Drawing.Point(20, 465);
-            this.stateComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.stateComboBox.Name = "stateComboBox";
-            this.stateComboBox.PromptText = "State";
-            this.stateComboBox.Size = new System.Drawing.Size(199, 30);
-            this.stateComboBox.TabIndex = 19;
-            this.stateComboBox.UseSelectable = true;
+            stateComboBox.FormattingEnabled = true;
+            stateComboBox.ItemHeight = 23;
+            stateComboBox.Items.AddRange(new object[] { "Alabama ", "Alaska ", "Arizona ", "Arkansas ", "California ", "Colorado ", "Connecticut ", "Delaware ", "Florida ", "Georgia ", "Hawaii ", "Idaho ", "Illinois Indiana ", "Iowa ", "Kansas ", "Kentucky ", "Louisiana ", "Maine ", "Maryland ", "Massachusetts ", "Michigan ", "Minnesota ", "Mississippi ", "Missouri ", "Montana Nebraska ", "Nevada ", "New Hampshire ", "New Jersey ", "New Mexico ", "New York ", "North Carolina ", "North Dakota ", "Ohio ", "Oklahoma ", "Oregon ", "Pennsylvania Rhode Island ", "South Carolina ", "South Dakota ", "Tennessee ", "Texas ", "Utah ", "Vermont ", "Virginia ", "Washington ", "West Virginia ", "Wisconsin ", "Wyoming" });
+            stateComboBox.Location = new Point(18, 436);
+            stateComboBox.Margin = new Padding(4);
+            stateComboBox.Name = "stateComboBox";
+            stateComboBox.PromptText = "State";
+            stateComboBox.Size = new Size(175, 29);
+            stateComboBox.TabIndex = 19;
+            stateComboBox.UseSelectable = true;
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.BackColor = System.Drawing.Color.White;
-            this.lastNameTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.lastNameTextBox.Lines = new string[0];
-            this.lastNameTextBox.Location = new System.Drawing.Point(235, 33);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.lastNameTextBox.MaxLength = 32767;
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.PasswordChar = '\0';
-            this.lastNameTextBox.PromptText = "Last";
-            this.lastNameTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.lastNameTextBox.SelectedText = "";
-            this.lastNameTextBox.Size = new System.Drawing.Size(207, 36);
-            this.lastNameTextBox.TabIndex = 3;
-            this.lastNameTextBox.UseCustomBackColor = true;
-            this.lastNameTextBox.UseSelectable = true;
+            lastNameTextBox.BackColor = Color.White;
+            lastNameTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            lastNameTextBox.Location = new Point(206, 31);
+            lastNameTextBox.Margin = new Padding(4);
+            lastNameTextBox.MaxLength = 32767;
+            lastNameTextBox.Name = "lastNameTextBox";
+            lastNameTextBox.PasswordChar = '\0';
+            lastNameTextBox.PromptText = "Last";
+            lastNameTextBox.ScrollBars = ScrollBars.None;
+            lastNameTextBox.SelectedText = "";
+            lastNameTextBox.Size = new Size(181, 34);
+            lastNameTextBox.TabIndex = 3;
+            lastNameTextBox.UseCustomBackColor = true;
+            lastNameTextBox.UseSelectable = true;
             // 
             // cityTextBox
             // 
-            this.cityTextBox.BackColor = System.Drawing.Color.White;
-            this.cityTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.cityTextBox.Lines = new string[0];
-            this.cityTextBox.Location = new System.Drawing.Point(228, 414);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cityTextBox.MaxLength = 32767;
-            this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.PasswordChar = '\0';
-            this.cityTextBox.PromptText = "City";
-            this.cityTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.cityTextBox.SelectedText = "";
-            this.cityTextBox.Size = new System.Drawing.Size(212, 36);
-            this.cityTextBox.Style = MetroFramework.MetroColorStyle.White;
-            this.cityTextBox.TabIndex = 18;
-            this.cityTextBox.UseCustomBackColor = true;
-            this.cityTextBox.UseSelectable = true;
+            cityTextBox.BackColor = Color.White;
+            cityTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            cityTextBox.Location = new Point(200, 388);
+            cityTextBox.Margin = new Padding(4);
+            cityTextBox.MaxLength = 32767;
+            cityTextBox.Name = "cityTextBox";
+            cityTextBox.PasswordChar = '\0';
+            cityTextBox.PromptText = "City";
+            cityTextBox.ScrollBars = ScrollBars.None;
+            cityTextBox.SelectedText = "";
+            cityTextBox.Size = new Size(186, 34);
+            cityTextBox.Style = MetroFramework.MetroColorStyle.White;
+            cityTextBox.TabIndex = 18;
+            cityTextBox.UseCustomBackColor = true;
+            cityTextBox.UseSelectable = true;
             // 
             // metroLabel6
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.Location = new System.Drawing.Point(19, 304);
-            this.metroLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(93, 20);
-            this.metroLabel6.TabIndex = 16;
-            this.metroLabel6.Text = "Your address";
-            this.metroLabel6.UseCustomBackColor = true;
-            this.metroLabel6.UseCustomForeColor = true;
+            metroLabel6.AutoSize = true;
+            metroLabel6.BackColor = Color.Transparent;
+            metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            metroLabel6.Location = new Point(17, 285);
+            metroLabel6.Margin = new Padding(4, 0, 4, 0);
+            metroLabel6.Name = "metroLabel6";
+            metroLabel6.Size = new Size(88, 19);
+            metroLabel6.TabIndex = 16;
+            metroLabel6.Text = "Your address";
+            metroLabel6.UseCustomBackColor = true;
+            metroLabel6.UseCustomForeColor = true;
             // 
             // aptTextBox
             // 
-            this.aptTextBox.BackColor = System.Drawing.Color.White;
-            this.aptTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.aptTextBox.Lines = new string[0];
-            this.aptTextBox.Location = new System.Drawing.Point(19, 412);
-            this.aptTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.aptTextBox.MaxLength = 32767;
-            this.aptTextBox.Name = "aptTextBox";
-            this.aptTextBox.PasswordChar = '\0';
-            this.aptTextBox.PromptText = "Apt./Suite";
-            this.aptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.aptTextBox.SelectedText = "";
-            this.aptTextBox.Size = new System.Drawing.Size(201, 36);
-            this.aptTextBox.Style = MetroFramework.MetroColorStyle.White;
-            this.aptTextBox.TabIndex = 17;
-            this.aptTextBox.UseCustomBackColor = true;
-            this.aptTextBox.UseSelectable = true;
+            aptTextBox.BackColor = Color.White;
+            aptTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            aptTextBox.Location = new Point(17, 386);
+            aptTextBox.Margin = new Padding(4);
+            aptTextBox.MaxLength = 32767;
+            aptTextBox.Name = "aptTextBox";
+            aptTextBox.PasswordChar = '\0';
+            aptTextBox.PromptText = "Apt./Suite";
+            aptTextBox.ScrollBars = ScrollBars.None;
+            aptTextBox.SelectedText = "";
+            aptTextBox.Size = new Size(176, 34);
+            aptTextBox.Style = MetroFramework.MetroColorStyle.White;
+            aptTextBox.TabIndex = 17;
+            aptTextBox.UseCustomBackColor = true;
+            aptTextBox.UseSelectable = true;
             // 
             // addLabel
             // 
-            this.addLabel.BackColor = System.Drawing.Color.White;
-            this.addLabel.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.addLabel.Lines = new string[0];
-            this.addLabel.Location = new System.Drawing.Point(17, 357);
-            this.addLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.addLabel.MaxLength = 32767;
-            this.addLabel.Name = "addLabel";
-            this.addLabel.PasswordChar = '\0';
-            this.addLabel.PromptText = "Street address";
-            this.addLabel.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.addLabel.SelectedText = "";
-            this.addLabel.Size = new System.Drawing.Size(421, 36);
-            this.addLabel.Style = MetroFramework.MetroColorStyle.White;
-            this.addLabel.TabIndex = 15;
-            this.addLabel.UseCustomBackColor = true;
-            this.addLabel.UseSelectable = true;
+            addLabel.BackColor = Color.White;
+            addLabel.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            addLabel.Location = new Point(15, 335);
+            addLabel.Margin = new Padding(4);
+            addLabel.MaxLength = 32767;
+            addLabel.Name = "addLabel";
+            addLabel.PasswordChar = '\0';
+            addLabel.PromptText = "Street address";
+            addLabel.ScrollBars = ScrollBars.None;
+            addLabel.SelectedText = "";
+            addLabel.Size = new Size(368, 34);
+            addLabel.Style = MetroFramework.MetroColorStyle.White;
+            addLabel.TabIndex = 15;
+            addLabel.UseCustomBackColor = true;
+            addLabel.UseSelectable = true;
             // 
             // searchPage
             // 
-            this.searchPage.Controls.Add(this.SearchError);
-            this.searchPage.Controls.Add(this.searchDataGridView);
-            this.searchPage.Controls.Add(this.searchButton);
-            this.searchPage.Controls.Add(this.searchTextBox);
-            this.searchPage.HorizontalScrollbarBarColor = true;
-            this.searchPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.searchPage.HorizontalScrollbarSize = 12;
-            this.searchPage.Location = new System.Drawing.Point(4, 38);
-            this.searchPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.searchPage.Name = "searchPage";
-            this.searchPage.Size = new System.Drawing.Size(1304, 551);
-            this.searchPage.TabIndex = 4;
-            this.searchPage.Text = "Universal Search";
-            this.searchPage.VerticalScrollbarBarColor = true;
-            this.searchPage.VerticalScrollbarHighlightOnWheel = false;
-            this.searchPage.VerticalScrollbarSize = 13;
+            searchPage.Controls.Add(SearchError);
+            searchPage.Controls.Add(searchDataGridView);
+            searchPage.Controls.Add(searchButton);
+            searchPage.Controls.Add(searchTextBox);
+            searchPage.HorizontalScrollbarBarColor = true;
+            searchPage.HorizontalScrollbarHighlightOnWheel = false;
+            searchPage.HorizontalScrollbarSize = 11;
+            searchPage.Location = new Point(4, 38);
+            searchPage.Margin = new Padding(4);
+            searchPage.Name = "searchPage";
+            searchPage.Size = new Size(1140, 514);
+            searchPage.TabIndex = 4;
+            searchPage.Text = "Universal Search";
+            searchPage.VerticalScrollbarBarColor = true;
+            searchPage.VerticalScrollbarHighlightOnWheel = false;
+            searchPage.VerticalScrollbarSize = 11;
             // 
             // SearchError
             // 
-            this.SearchError.AutoSize = true;
-            this.SearchError.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.SearchError.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.SearchError.Location = new System.Drawing.Point(360, 46);
-            this.SearchError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.SearchError.Name = "SearchError";
-            this.SearchError.Size = new System.Drawing.Size(332, 150);
-            this.SearchError.Style = MetroFramework.MetroColorStyle.Green;
-            this.SearchError.TabIndex = 19;
-            this.SearchError.Text = "I ran out of entries :( SORRY DUDE.\r\n\r\nYou know, we can make another deal. \r\n\r\nI " +
-    "sure will find something.\r\n";
-            this.SearchError.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.SearchError.Visible = false;
+            SearchError.AutoSize = true;
+            SearchError.FontSize = MetroFramework.MetroLabelSize.Tall;
+            SearchError.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            SearchError.Location = new Point(315, 43);
+            SearchError.Margin = new Padding(4, 0, 4, 0);
+            SearchError.Name = "SearchError";
+            SearchError.Size = new Size(313, 150);
+            SearchError.Style = MetroFramework.MetroColorStyle.Green;
+            SearchError.TabIndex = 19;
+            SearchError.Text = "I ran out of entries :( SORRY DUDE.\r\n\r\nYou know, we can make another deal. \r\n\r\nI sure will find something.\r\n";
+            SearchError.Theme = MetroFramework.MetroThemeStyle.Light;
+            SearchError.Visible = false;
             // 
             // searchDataGridView
             // 
-            this.searchDataGridView.AllowUserToAddRows = false;
-            this.searchDataGridView.AllowUserToDeleteRows = false;
-            this.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchDataGridView.Location = new System.Drawing.Point(91, 50);
-            this.searchDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.searchDataGridView.Name = "searchDataGridView";
-            this.searchDataGridView.ReadOnly = true;
-            this.searchDataGridView.Size = new System.Drawing.Size(973, 290);
-            this.searchDataGridView.TabIndex = 18;
-            this.searchDataGridView.Visible = false;
+            searchDataGridView.AllowUserToAddRows = false;
+            searchDataGridView.AllowUserToDeleteRows = false;
+            searchDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            searchDataGridView.Location = new Point(80, 47);
+            searchDataGridView.Margin = new Padding(4);
+            searchDataGridView.Name = "searchDataGridView";
+            searchDataGridView.ReadOnly = true;
+            searchDataGridView.Size = new Size(851, 272);
+            searchDataGridView.TabIndex = 18;
+            searchDataGridView.Visible = false;
             // 
             // searchButton
             // 
-            this.searchButton.BackColor = System.Drawing.Color.Transparent;
-            this.searchButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchButton.BackgroundImage")));
-            this.searchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.searchButton.Location = new System.Drawing.Point(1012, 242);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(61, 36);
-            this.searchButton.TabIndex = 17;
-            this.searchButton.UseCustomBackColor = true;
-            this.searchButton.UseSelectable = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            searchButton.BackColor = Color.Transparent;
+            searchButton.BackgroundImage = (Image)resources.GetObject("searchButton.BackgroundImage");
+            searchButton.BackgroundImageLayout = ImageLayout.Zoom;
+            searchButton.Location = new Point(886, 227);
+            searchButton.Margin = new Padding(4);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(53, 34);
+            searchButton.TabIndex = 17;
+            searchButton.UseCustomBackColor = true;
+            searchButton.UseSelectable = true;
+            searchButton.UseVisualStyleBackColor = false;
+            searchButton.Click += searchButton_Click;
             // 
             // searchTextBox
             // 
-            this.searchTextBox.BackColor = System.Drawing.Color.White;
-            this.searchTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.searchTextBox.Icon = ((System.Drawing.Image)(resources.GetObject("searchTextBox.Icon")));
-            this.searchTextBox.IconRight = true;
-            this.searchTextBox.Lines = new string[0];
-            this.searchTextBox.Location = new System.Drawing.Point(100, 242);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.searchTextBox.MaxLength = 32767;
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.PasswordChar = '\0';
-            this.searchTextBox.PromptText = "Search";
-            this.searchTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.searchTextBox.SelectedText = "";
-            this.searchTextBox.Size = new System.Drawing.Size(951, 36);
-            this.searchTextBox.Style = MetroFramework.MetroColorStyle.White;
-            this.searchTextBox.TabIndex = 15;
-            this.searchTextBox.UseCustomBackColor = true;
-            this.searchTextBox.UseSelectable = true;
+            searchTextBox.BackColor = Color.White;
+            searchTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            searchTextBox.Icon = (Image)resources.GetObject("searchTextBox.Icon");
+            searchTextBox.IconRight = true;
+            searchTextBox.Location = new Point(88, 227);
+            searchTextBox.Margin = new Padding(4);
+            searchTextBox.MaxLength = 32767;
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.PasswordChar = '\0';
+            searchTextBox.PromptText = "Search";
+            searchTextBox.ScrollBars = ScrollBars.None;
+            searchTextBox.SelectedText = "";
+            searchTextBox.Size = new Size(832, 34);
+            searchTextBox.Style = MetroFramework.MetroColorStyle.White;
+            searchTextBox.TabIndex = 15;
+            searchTextBox.UseCustomBackColor = true;
+            searchTextBox.UseSelectable = true;
             // 
             // metroTabPage2
             // 
-            this.metroTabPage2.AutoScroll = true;
-            this.metroTabPage2.Controls.Add(this.resTotalDataGridView);
-            this.metroTabPage2.HorizontalScrollbar = true;
-            this.metroTabPage2.HorizontalScrollbarBarColor = true;
-            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 12;
-            this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(1304, 551);
-            this.metroTabPage2.TabIndex = 3;
-            this.metroTabPage2.Text = "Reservation Adv. view";
-            this.metroTabPage2.VerticalScrollbar = true;
-            this.metroTabPage2.VerticalScrollbarBarColor = true;
-            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 13;
+            metroTabPage2.AutoScroll = true;
+            metroTabPage2.Controls.Add(resTotalDataGridView);
+            metroTabPage2.HorizontalScrollbar = true;
+            metroTabPage2.HorizontalScrollbarBarColor = true;
+            metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
+            metroTabPage2.HorizontalScrollbarSize = 11;
+            metroTabPage2.Location = new Point(4, 38);
+            metroTabPage2.Margin = new Padding(4);
+            metroTabPage2.Name = "metroTabPage2";
+            metroTabPage2.Size = new Size(1140, 514);
+            metroTabPage2.TabIndex = 3;
+            metroTabPage2.Text = "Reservation Adv. view";
+            metroTabPage2.VerticalScrollbar = true;
+            metroTabPage2.VerticalScrollbarBarColor = true;
+            metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
+            metroTabPage2.VerticalScrollbarSize = 11;
             // 
             // resTotalDataGridView
             // 
-            this.resTotalDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resTotalDataGridView.Location = new System.Drawing.Point(0, 4);
-            this.resTotalDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.resTotalDataGridView.Name = "resTotalDataGridView";
-            this.resTotalDataGridView.Size = new System.Drawing.Size(1301, 534);
-            this.resTotalDataGridView.TabIndex = 2;
+            resTotalDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resTotalDataGridView.Location = new Point(0, 4);
+            resTotalDataGridView.Margin = new Padding(4);
+            resTotalDataGridView.Name = "resTotalDataGridView";
+            resTotalDataGridView.Size = new Size(1138, 501);
+            resTotalDataGridView.TabIndex = 2;
             // 
             // roomPage
             // 
-            this.roomPage.Controls.Add(this.metroLabel13);
-            this.roomPage.Controls.Add(this.metroLabel11);
-            this.roomPage.Controls.Add(this.reservedLabel);
-            this.roomPage.Controls.Add(this.roomReservedListBox);
-            this.roomPage.Controls.Add(this.roomOccupiedListBox);
-            this.roomPage.Controls.Add(this.occupiedLabel);
-            this.roomPage.HorizontalScrollbarBarColor = true;
-            this.roomPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.roomPage.HorizontalScrollbarSize = 12;
-            this.roomPage.Location = new System.Drawing.Point(4, 38);
-            this.roomPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.roomPage.Name = "roomPage";
-            this.roomPage.Size = new System.Drawing.Size(1304, 551);
-            this.roomPage.TabIndex = 2;
-            this.roomPage.Text = "Room availibility";
-            this.roomPage.VerticalScrollbarBarColor = true;
-            this.roomPage.VerticalScrollbarHighlightOnWheel = false;
-            this.roomPage.VerticalScrollbarSize = 13;
+            roomPage.Controls.Add(metroLabel13);
+            roomPage.Controls.Add(metroLabel11);
+            roomPage.Controls.Add(reservedLabel);
+            roomPage.Controls.Add(roomReservedListBox);
+            roomPage.Controls.Add(roomOccupiedListBox);
+            roomPage.Controls.Add(occupiedLabel);
+            roomPage.HorizontalScrollbarBarColor = true;
+            roomPage.HorizontalScrollbarHighlightOnWheel = false;
+            roomPage.HorizontalScrollbarSize = 11;
+            roomPage.Location = new Point(4, 38);
+            roomPage.Margin = new Padding(4);
+            roomPage.Name = "roomPage";
+            roomPage.Size = new Size(1140, 514);
+            roomPage.TabIndex = 2;
+            roomPage.Text = "Room availibility";
+            roomPage.VerticalScrollbarBarColor = true;
+            roomPage.VerticalScrollbarHighlightOnWheel = false;
+            roomPage.VerticalScrollbarSize = 11;
             // 
             // metroLabel13
             // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel13.Location = new System.Drawing.Point(612, 34);
-            this.metroLabel13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(506, 20);
-            this.metroLabel13.TabIndex = 10;
-            this.metroLabel13.Text = "Room#| Type  |  ID#   |       Name      |      Phone #      |     Entry       |  " +
-    "  Depart";
-            this.metroLabel13.UseCustomBackColor = true;
-            this.metroLabel13.UseCustomForeColor = true;
+            metroLabel13.AutoSize = true;
+            metroLabel13.BackColor = Color.Transparent;
+            metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            metroLabel13.Location = new Point(536, 32);
+            metroLabel13.Margin = new Padding(4, 0, 4, 0);
+            metroLabel13.Name = "metroLabel13";
+            metroLabel13.Size = new Size(478, 19);
+            metroLabel13.TabIndex = 10;
+            metroLabel13.Text = "Room#| Type  |  ID#   |       Name      |      Phone #      |     Entry       |    Depart";
+            metroLabel13.UseCustomBackColor = true;
+            metroLabel13.UseCustomForeColor = true;
             // 
             // metroLabel11
             // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel11.Location = new System.Drawing.Point(-4, 34);
-            this.metroLabel11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(331, 20);
-            this.metroLabel11.TabIndex = 9;
-            this.metroLabel11.Text = "Room#| Type  |  ID#   |       Name      |      Phone #";
-            this.metroLabel11.UseCustomBackColor = true;
-            this.metroLabel11.UseCustomForeColor = true;
+            metroLabel11.AutoSize = true;
+            metroLabel11.BackColor = Color.Transparent;
+            metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            metroLabel11.Location = new Point(-4, 32);
+            metroLabel11.Margin = new Padding(4, 0, 4, 0);
+            metroLabel11.Name = "metroLabel11";
+            metroLabel11.Size = new Size(310, 19);
+            metroLabel11.TabIndex = 9;
+            metroLabel11.Text = "Room#| Type  |  ID#   |       Name      |      Phone #";
+            metroLabel11.UseCustomBackColor = true;
+            metroLabel11.UseCustomForeColor = true;
             // 
             // reservedLabel
             // 
-            this.reservedLabel.AutoSize = true;
-            this.reservedLabel.BackColor = System.Drawing.Color.Transparent;
-            this.reservedLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.reservedLabel.Location = new System.Drawing.Point(612, 5);
-            this.reservedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.reservedLabel.Name = "reservedLabel";
-            this.reservedLabel.Size = new System.Drawing.Size(69, 20);
-            this.reservedLabel.TabIndex = 8;
-            this.reservedLabel.Text = "Reserved";
-            this.reservedLabel.UseCustomBackColor = true;
-            this.reservedLabel.UseCustomForeColor = true;
+            reservedLabel.AutoSize = true;
+            reservedLabel.BackColor = Color.Transparent;
+            reservedLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            reservedLabel.Location = new Point(536, 5);
+            reservedLabel.Margin = new Padding(4, 0, 4, 0);
+            reservedLabel.Name = "reservedLabel";
+            reservedLabel.Size = new Size(64, 19);
+            reservedLabel.TabIndex = 8;
+            reservedLabel.Text = "Reserved";
+            reservedLabel.UseCustomBackColor = true;
+            reservedLabel.UseCustomForeColor = true;
             // 
             // roomReservedListBox
             // 
-            this.roomReservedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.roomReservedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.roomReservedListBox.FormattingEnabled = true;
-            this.roomReservedListBox.HorizontalScrollbar = true;
-            this.roomReservedListBox.IntegralHeight = false;
-            this.roomReservedListBox.ItemHeight = 16;
-            this.roomReservedListBox.Location = new System.Drawing.Point(613, 62);
-            this.roomReservedListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.roomReservedListBox.Name = "roomReservedListBox";
-            this.roomReservedListBox.Size = new System.Drawing.Size(688, 476);
-            this.roomReservedListBox.TabIndex = 7;
+            roomReservedListBox.BackColor = Color.FromArgb(224, 224, 224);
+            //roomReservedListBox.BorderStyle = BorderStyle.None;
+            roomReservedListBox.FormattingEnabled = true;
+            roomReservedListBox.HorizontalScrollbar = true;
+            roomReservedListBox.IntegralHeight = false;
+            roomReservedListBox.Location = new Point(536, 58);
+            roomReservedListBox.Margin = new Padding(4);
+            roomReservedListBox.Name = "roomReservedListBox";
+            roomReservedListBox.Size = new Size(602, 446);
+            roomReservedListBox.TabIndex = 7;
             // 
             // roomOccupiedListBox
             // 
-            this.roomOccupiedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.roomOccupiedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.roomOccupiedListBox.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomOccupiedListBox.FormattingEnabled = true;
-            this.roomOccupiedListBox.HorizontalScrollbar = true;
-            this.roomOccupiedListBox.IntegralHeight = false;
-            this.roomOccupiedListBox.ItemHeight = 19;
-            this.roomOccupiedListBox.Location = new System.Drawing.Point(0, 62);
-            this.roomOccupiedListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.roomOccupiedListBox.Name = "roomOccupiedListBox";
-            this.roomOccupiedListBox.Size = new System.Drawing.Size(605, 476);
-            this.roomOccupiedListBox.TabIndex = 6;
+            roomOccupiedListBox.BackColor = Color.FromArgb(224, 224, 224);
+            //roomOccupiedListBox.BorderStyle = BorderStyle.None;
+            roomOccupiedListBox.Font = new Font("Segoe UI Symbol", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roomOccupiedListBox.FormattingEnabled = true;
+            roomOccupiedListBox.HorizontalScrollbar = true;
+            roomOccupiedListBox.IntegralHeight = false;
+            roomOccupiedListBox.Location = new Point(0, 58);
+            roomOccupiedListBox.Margin = new Padding(4);
+            roomOccupiedListBox.Name = "roomOccupiedListBox";
+            roomOccupiedListBox.Size = new Size(529, 446);
+            roomOccupiedListBox.TabIndex = 6;
             // 
             // occupiedLabel
             // 
-            this.occupiedLabel.AutoSize = true;
-            this.occupiedLabel.BackColor = System.Drawing.Color.Transparent;
-            this.occupiedLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.occupiedLabel.Location = new System.Drawing.Point(-4, 5);
-            this.occupiedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.occupiedLabel.Name = "occupiedLabel";
-            this.occupiedLabel.Size = new System.Drawing.Size(72, 20);
-            this.occupiedLabel.TabIndex = 5;
-            this.occupiedLabel.Text = "Occupied";
-            this.occupiedLabel.UseCustomBackColor = true;
-            this.occupiedLabel.UseCustomForeColor = true;
+            occupiedLabel.AutoSize = true;
+            occupiedLabel.BackColor = Color.Transparent;
+            occupiedLabel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            occupiedLabel.Location = new Point(-4, 5);
+            occupiedLabel.Margin = new Padding(4, 0, 4, 0);
+            occupiedLabel.Name = "occupiedLabel";
+            occupiedLabel.Size = new Size(66, 19);
+            occupiedLabel.TabIndex = 5;
+            occupiedLabel.Text = "Occupied";
+            occupiedLabel.UseCustomBackColor = true;
+            occupiedLabel.UseCustomForeColor = true;
             // 
             // Frontend
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackImage = ((System.Drawing.Image)(resources.GetObject("$this.BackImage")));
-            this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(1331, 671);
-            this.Controls.Add(this.resPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Frontend";
-            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
-            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Style = MetroFramework.MetroColorStyle.Green;
-            this.Text = "Frontend";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frontend_FormClosing);
-            this.Load += new System.EventHandler(this.MainTab_Load);
-            this.resPanel.ResumeLayout(false);
-            this.reservationPage.ResumeLayout(false);
-            this.rightMPanel.ResumeLayout(false);
-            this.middlePanel.ResumeLayout(false);
-            this.middlePanel.PerformLayout();
-            this.leftMPanel.ResumeLayout(false);
-            this.leftMPanel.PerformLayout();
-            this.searchPage.ResumeLayout(false);
-            this.searchPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).EndInit();
-            this.metroTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.resTotalDataGridView)).EndInit();
-            this.roomPage.ResumeLayout(false);
-            this.roomPage.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackImage = (Image)resources.GetObject("$this.BackImage");
+            BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
+            ClientSize = new Size(1165, 629);
+            Controls.Add(resPanel);
+            Margin = new Padding(4);
+            Name = "Frontend";
+            Padding = new Padding(24, 69, 24, 23);
+            ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow;
+            StartPosition = FormStartPosition.Manual;
+            Style = MetroFramework.MetroColorStyle.Green;
+            Text = "Frontend";
+            FormClosing += frontend_FormClosing;
+            Load += MainTab_Load;
+            resPanel.ResumeLayout(false);
+            reservationPage.ResumeLayout(false);
+            rightMPanel.ResumeLayout(false);
+            middlePanel.ResumeLayout(false);
+            middlePanel.PerformLayout();
+            leftMPanel.ResumeLayout(false);
+            leftMPanel.PerformLayout();
+            searchPage.ResumeLayout(false);
+            searchPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)searchDataGridView).EndInit();
+            metroTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)resTotalDataGridView).EndInit();
+            roomPage.ResumeLayout(false);
+            roomPage.PerformLayout();
+            ResumeLayout(false);
 
         }
 
         #endregion
 
-       
+
 
         private MetroFramework.Controls.MetroTabControl resPanel;
         private MetroFramework.Controls.MetroTabPage reservationPage;
