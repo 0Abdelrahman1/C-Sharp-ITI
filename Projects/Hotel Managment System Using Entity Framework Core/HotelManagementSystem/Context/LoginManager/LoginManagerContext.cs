@@ -13,7 +13,7 @@ namespace HotelManagementSystem.Context.LoginManager
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder
             .UseSqlServer(ConfigurationManager.ConnectionStrings[nameof(LoginManager)].ConnectionString)
-            .UseLazyLoadingProxies();
+            .UseLazyLoadingProxies();   
 
         public virtual DbSet<Frontend> Frontends { get; set; }
         public virtual DbSet<Kitchen> Kitchens { get; set; }

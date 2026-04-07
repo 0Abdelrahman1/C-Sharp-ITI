@@ -147,6 +147,5 @@ namespace HotelManagementSystem.Entities.FrontendReservation
         [Column("food_bill")]
         [Required]
         public int FoodBill { get; set; }
-
     }
 }

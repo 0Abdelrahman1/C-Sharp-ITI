@@ -11,6 +11,7 @@ using MetroFramework.Drawing;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace HotelManagementSystem.UI
 {
@@ -39,18 +40,17 @@ namespace HotelManagementSystem.UI
                 }
                 else
                 {
-                    MetroFramework.MetroMessageBox.Show(this, "Username or Password is wrong, try again", "Login Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Username or Password is wrong, try again", "Login Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
         }
 
         private void usernameTextBox_Click(object sender, EventArgs e)
         {
-
             if (usernameTextBox.Text == string.Empty)
             {
                 usernameLabel.Visible = true;
@@ -60,9 +60,9 @@ namespace HotelManagementSystem.UI
                 usernameLabel.Visible = false;
             }
         }
+
         private void passwordTextBox_Click(object sender, EventArgs e)
         {
-
             if (passwordTextBox.Text == string.Empty)
             {
                 passwordLabel.Visible = true;
@@ -84,7 +84,6 @@ namespace HotelManagementSystem.UI
             {
                 passwordLabel.Visible = false;
             }
-
         }
 
         public bool verifier(string tableName, string username, string password)
@@ -116,6 +115,8 @@ namespace HotelManagementSystem.UI
             //return success;
             // throw new NotImplementedException();
 
+            Trace.WriteLine("In verifier(string tableName, string username, string password)");
+
             try
             {
                 switch(tableName)
@@ -131,7 +132,7 @@ namespace HotelManagementSystem.UI
             }
             catch (Exception e)
             {
-                MetroFramework.MetroMessageBox.Show(this, e.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                MessageBox.Show(this, e.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 return false;
             }
         }

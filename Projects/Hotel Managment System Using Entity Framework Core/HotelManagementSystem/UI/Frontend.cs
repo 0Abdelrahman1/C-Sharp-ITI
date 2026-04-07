@@ -202,10 +202,10 @@ namespace HotelManagementSystem.UI
             }
             int selectedTemp = 0;
             string selected;
-            bool temp = int.TryParse(qtGuestComboBox.SelectedItem.ToString(), out selectedTemp);
+            bool temp = int.TryParse(qtGuestComboBox?.SelectedItem?.ToString(), out selectedTemp);
             if (!temp)
             {
-                MetroFramework.MetroMessageBox.Show(this, "Enter # of guests first", "Error parsing", MessageBoxButtons.OK);
+                MessageBox.Show("Enter # of guests first", "Error parsing", MessageBoxButtons.OK);
             }
             else
             {
@@ -383,7 +383,7 @@ namespace HotelManagementSystem.UI
                 };
                 frontendReservationContext.Add(reservation);
                 if (frontendReservationContext.SaveChanges() > 0)
-                    MetroFramework.MetroMessageBox.Show(this, "Entry successfully inserted into database. \n\nProvide this unique ID to the customer.\n\nUSER UNIQUE ID: " + reservation.Id, "Report", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show("Entry successfully inserted into database. \n\nProvide this unique ID to the customer.\n\nUSER UNIQUE ID: " + reservation.Id, "Report", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             catch (Exception ex)
             {
@@ -455,7 +455,7 @@ namespace HotelManagementSystem.UI
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.ToString(), "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);  
             }
         }
 
@@ -512,21 +512,21 @@ namespace HotelManagementSystem.UI
                     var reservation = frontendReservationContext.Reservations.SingleOrDefault(R => R.Id == primartyID);
                     if (reservation == null)
                     {
-                        MetroFramework.MetroMessageBox.Show(this, "Selected reservation not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Selected reservation not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     frontendReservationContext.Remove(reservation);
 
                     if (frontendReservationContext.SaveChanges() > 0)
-                        MetroFramework.MetroMessageBox.Show(this, "Reservation For the UNIQUE USER ID of: \n\n " + primartyID + " is DELETED.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        MessageBox.Show("Reservation For the UNIQUE USER ID of: \n\n " + primartyID + " is DELETED.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 catch (Exception ex)
                 {
-                    MetroFramework.MetroMessageBox.Show(this, "Selected ID doesn't exist." + ex.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                    MessageBox.Show("Selected ID doesn't exist." + ex.ToString(), "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
                 }
             }
             else
-                MetroFramework.MetroMessageBox.Show(this, "Selected ID doesn't exist.", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                MessageBox.Show("Selected ID doesn't exist.", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
             ComboBoxItemsFromDataBase();
             LoadForDataGridView();
             reset_frontend();
@@ -581,6 +581,8 @@ namespace HotelManagementSystem.UI
             // getChecked();
             // throw new NotImplementedException();
 
+            Trace.WriteLine("In updateButton_Click(object sender, EventArgs e)");
+
             FrontendReservationContext frontendReservationContext = new FrontendReservationContext();
             try
             {
@@ -620,7 +622,7 @@ namespace HotelManagementSystem.UI
                 reservation.FoodBill = foodBill;
 
                 if (frontendReservationContext.SaveChanges() > 0)
-                    MetroFramework.MetroMessageBox.Show(this, "Entry successfully updated into database. For the UNIQUE USER ID of: \n\n " + reservation.Id, "Report", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show("Entry successfully updated into database. For the UNIQUE USER ID of: \n\n " + reservation.Id, "Report", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 SendSMS(primartyID);
 
             }
@@ -823,11 +825,6 @@ namespace HotelManagementSystem.UI
             // throw new NotImplementedException();
 
 
-
-
-
-
-
             Trace.WriteLine("In resEditButton_SelectedIndexChanged(object sender, EventArgs e)");
 
 
@@ -1014,7 +1011,7 @@ namespace HotelManagementSystem.UI
             }
             catch (Exception)
             {
-                MetroFramework.MetroMessageBox.Show(this, "Error loading data", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.None);
+                MessageBox.Show("Error loading data", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.None);
             }
         }
 
